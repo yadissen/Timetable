@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Schedule</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,34 +12,56 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f8fafc;
-            padding: 16px;
+            background: white;
             color: #0f172a;
             -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1800px;
-            margin: 0 auto;
-            background: white;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 8px;
         }
 
-        /* HEADER */
+        /* HEADER - Bold and Impactful */
         header {
-            padding: 14px 20px;
-            border-bottom: 3px solid #0f172a;
+            padding: 12px 20px;
+            border-bottom: 4px solid #0f172a;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-shrink: 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
         }
 
         .page-title {
-            font-size: 22px;
-            font-weight: 700;
+            font-size: 42px;
+            font-weight: 900;
             color: #0f172a;
-            letter-spacing: -0.5px;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            font-weight: 500;
+            color: #64748b;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .toolbar {
@@ -48,15 +70,17 @@
         }
 
         .btn {
-            padding: 6px 14px;
+            padding: 8px 16px;
             background: white;
-            border: 1.5px solid #0f172a;
+            border: 2px solid #0f172a;
             border-radius: 4px;
             color: #0f172a;
             font-family: 'Inter', sans-serif;
-            font-size: 11px;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
             cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .btn:hover {
@@ -64,64 +88,39 @@
             color: white;
         }
 
-        /* CATEGORY KEY */
-        .category-key {
-            display: flex;
-            gap: 24px;
-            padding: 10px 20px;
-            border-bottom: 1px solid #e2e8f0;
-            background: #fafafa;
-            font-size: 10px;
-            font-weight: 600;
-            color: #475569;
-        }
-
-        .key-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .key-color {
-            width: 14px;
-            height: 14px;
-            border-radius: 2px;
-            border-left: 3px solid;
-        }
-
-        .key-academic { background: #dbeafe; border-left-color: #2563eb; }
-        .key-physical { background: #dcfce7; border-left-color: #16a34a; }
-        .key-neutral { background: #f1f5f9; border-left-color: #64748b; }
-        .key-recovery { background: #ede9fe; border-left-color: #7c3aed; }
-
-        /* SCHEDULE */
+        /* SCHEDULE - Full Space Usage */
         .schedule-wrapper {
-            padding: 12px;
-            overflow-x: auto;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 8px 0;
+            min-height: 0;
         }
 
         .grid-table {
             width: 100%;
+            height: 100%;
             border-collapse: collapse;
-            min-width: 1200px;
-            border: 2px solid #0f172a;
+            border: 3px solid #0f172a;
+            table-layout: fixed;
         }
 
         .grid-table th {
             background: #0f172a;
             color: white;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 12px 8px;
+            font-size: 18px;
+            font-weight: 800;
+            padding: 14px 8px;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .grid-table th:first-child {
-            width: 60px;
-            min-width: 60px;
-            font-size: 10px;
+            width: 70px;
+            min-width: 70px;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
 
         .grid-table td {
@@ -131,55 +130,48 @@
         }
 
         .time-column {
-            background: #f8fafc;
-            font-size: 10px;
-            font-weight: 600;
-            color: #475569;
+            background: #f1f5f9;
+            font-size: 14px;
+            font-weight: 700;
+            color: #334155;
             text-align: center;
-            padding: 4px 2px;
+            padding: 6px 4px;
             font-variant-numeric: tabular-nums;
-            border-right: 2px solid #0f172a !important;
+            border-right: 3px solid #0f172a !important;
         }
 
         .day-cell {
             background: white;
-            height: 40px;
-            min-height: 40px;
+            height: 52px;
+            min-height: 52px;
             vertical-align: top;
         }
 
         /* Subtle row striping */
         .grid-table tbody tr:nth-child(even) .day-cell {
-            background: #fcfcfd;
+            background: #fafbfc;
         }
 
-        /* ACTIVITY BLOCKS */
+        /* ACTIVITY BLOCKS - Large & Readable */
         .activity-block {
-            padding: 2px 6px;
-            font-size: 9px;
-            line-height: 1.3;
+            padding: 4px 8px;
+            font-size: 14px;
+            line-height: 1.2;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 4px;
-            border-left: 3px solid;
+            justify-content: center;
+            border-left: 4px solid;
             height: 100%;
         }
 
         .activity-text {
-            flex: 1;
-            font-weight: 500;
-            white-space: nowrap;
+            font-weight: 600;
+            text-align: center;
             overflow: hidden;
             text-overflow: ellipsis;
-        }
-
-        .activity-time {
-            font-size: 8px;
-            font-weight: 600;
-            opacity: 0.5;
-            white-space: nowrap;
-            font-variant-numeric: tabular-nums;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
         /* ============================================
@@ -215,12 +207,12 @@
         }
 
         /* ============================================
-           PRINT STYLES - A3 LANDSCAPE
+           PRINT STYLES - A3 LANDSCAPE POSTER
            ============================================ */
         @media print {
             @page {
                 size: A3 landscape;
-                margin: 5mm;
+                margin: 6mm;
             }
 
             * {
@@ -238,79 +230,71 @@
             }
 
             .container {
-                max-width: 100% !important;
-                width: 100% !important;
+                height: 100%;
+                padding: 0;
             }
 
             header {
-                padding: 8px 12px !important;
-                border-bottom-width: 2px !important;
+                padding: 10px 16px;
+                border-bottom-width: 3px;
             }
 
             .page-title {
-                font-size: 16px !important;
+                font-size: 36px;
+                letter-spacing: -1.5px;
+            }
+
+            .subtitle {
+                font-size: 12px;
             }
 
             .toolbar {
                 display: none !important;
             }
 
-            .category-key {
-                padding: 6px 12px !important;
-                gap: 16px !important;
-                font-size: 8px !important;
-            }
-
-            .key-color {
-                width: 10px !important;
-                height: 10px !important;
-                border-left-width: 2px !important;
-            }
-
             .schedule-wrapper {
-                padding: 8px !important;
-                overflow: visible !important;
+                flex: 1;
+                padding: 6px 0;
             }
 
             .grid-table {
-                min-width: 0 !important;
-                width: 100% !important;
-                table-layout: fixed !important;
+                width: 100%;
+                height: 100%;
+                border-width: 2px;
             }
 
             .grid-table th {
-                padding: 8px 4px !important;
-                font-size: 9px !important;
+                padding: 12px 6px;
+                font-size: 16px;
+                letter-spacing: 1.5px;
             }
 
             .grid-table th:first-child {
-                width: 45px !important;
-                min-width: 45px !important;
-                font-size: 8px !important;
+                width: 60px;
+                min-width: 60px;
+                font-size: 12px;
             }
 
             .time-column {
-                font-size: 8px !important;
-                padding: 2px !important;
+                font-size: 12px;
+                padding: 4px 2px;
+                border-right-width: 2px !important;
             }
 
             .day-cell {
-                height: 32px !important;
-                min-height: 32px !important;
+                height: auto;
+                min-height: 44px;
             }
 
             .activity-block {
-                padding: 1px 4px !important;
-                font-size: 7.5px !important;
-                border-left-width: 2px !important;
+                padding: 3px 6px;
+                font-size: 12px;
+                border-left-width: 3px;
             }
 
             .activity-text {
-                font-size: 7.5px !important;
-            }
-
-            .activity-time {
-                font-size: 6px !important;
+                font-size: 12px;
+                -webkit-line-clamp: 2;
             }
 
             .container, .schedule-wrapper, .grid-table {
@@ -322,20 +306,16 @@
 <body>
     <div class="container">
         <header>
-            <h1 class="page-title">Weekly Schedule</h1>
+            <div class="header-content">
+                <h1 class="page-title">Weekly Schedule</h1>
+                <span class="subtitle">Execute with Discipline</span>
+            </div>
             <div class="toolbar">
                 <button class="btn" onclick="saveSchedule()">Save</button>
                 <button class="btn" onclick="loadSchedule()">Load</button>
                 <button class="btn" onclick="window.print()">Print</button>
             </div>
         </header>
-
-        <div class="category-key">
-            <div class="key-item"><div class="key-color key-academic"></div>Academic</div>
-            <div class="key-item"><div class="key-color key-physical"></div>Physical</div>
-            <div class="key-item"><div class="key-color key-neutral"></div>Transition</div>
-            <div class="key-item"><div class="key-color key-recovery"></div>Recovery</div>
-        </div>
 
         <div class="schedule-wrapper">
             <table class="grid-table">
@@ -570,11 +550,6 @@
                                 textSpan.className = 'activity-text';
                                 textSpan.textContent = slot.activity;
                                 activityDiv.appendChild(textSpan);
-
-                                const timeSpan = document.createElement('span');
-                                timeSpan.className = 'activity-time';
-                                timeSpan.textContent = slot.time;
-                                activityDiv.appendChild(timeSpan);
                             }
 
                             activityDiv.title = slot.time + ': ' + slot.activity;
