@@ -7,31 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-text: #111827;
-            --color-text-muted: #6b7280;
-            --color-border: #e5e7eb;
-            --color-header: #111827;
-
-            /* 4 MEANINGFUL CATEGORIES */
-            /* Deep Work - Strong Blue (high focus activities) */
-            --deep-work-bg: #dbeafe;
-            --deep-work-border: #2563eb;
-            --deep-work-text: #1e40af;
-
-            /* Health & Wellness - Green (physical/mental wellbeing) */
-            --health-bg: #dcfce7;
-            --health-border: #16a34a;
-            --health-text: #166534;
-
-            /* Transitions - Light Gray (breaks, travel, routine) */
-            --transition-bg: #f3f4f6;
-            --transition-border: #9ca3af;
-            --transition-text: #4b5563;
-
-            /* Personal - Soft Purple (leisure, social, recovery) */
-            --personal-bg: #f3e8ff;
-            --personal-border: #9333ea;
-            --personal-text: #7c3aed;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e1;
+            --bg-subtle: #f8fafc;
+            --header-bg: #0f172a;
         }
 
         * {
@@ -42,186 +24,292 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: #f9fafb;
+            background: #f1f5f9;
             min-height: 100vh;
-            padding: 24px 16px;
-            color: var(--color-text);
+            padding: 20px;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             max-width: 1800px;
             margin: 0 auto;
             background: white;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
             overflow: hidden;
         }
 
+        /* HEADER */
         header {
-            padding: 20px 24px;
-            border-bottom: 3px solid var(--color-header);
-            background: white;
+            padding: 16px 20px;
+            background: var(--header-bg);
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: center;
         }
 
-        .header-left {
+        .header-content {
             display: flex;
-            flex-direction: column;
+            align-items: baseline;
+            gap: 16px;
         }
 
         .page-title {
-            font-size: 24px;
-            font-weight: 800;
-            color: var(--color-header);
-            letter-spacing: -0.5px;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.3px;
         }
 
         .page-motto {
-            font-size: 12px;
-            color: var(--color-text-muted);
+            font-size: 11px;
+            color: #94a3b8;
             font-weight: 500;
             font-style: italic;
-            margin-top: 4px;
         }
 
         .toolbar {
             display: flex;
-            gap: 8px;
+            gap: 6px;
         }
 
         .btn {
-            padding: 6px 14px;
-            background: white;
-            border: 1px solid var(--color-border);
+            padding: 6px 12px;
+            background: transparent;
+            border: 1px solid #334155;
             border-radius: 4px;
-            color: var(--color-text);
+            color: #e2e8f0;
             font-family: 'Inter', sans-serif;
             font-size: 11px;
             font-weight: 500;
             cursor: pointer;
+            transition: all 0.15s;
         }
 
         .btn:hover {
-            background: #f9fafb;
+            background: #1e293b;
+            border-color: #475569;
         }
 
         .btn-primary {
-            background: var(--color-header);
-            color: white;
-            border-color: var(--color-header);
+            background: white;
+            color: var(--header-bg);
+            border-color: white;
         }
 
+        .btn-primary:hover {
+            background: #f1f5f9;
+        }
+
+        /* SCHEDULE */
         .schedule-wrapper {
-            padding: 12px;
+            padding: 16px;
             overflow-x: auto;
         }
 
         .grid-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 1200px;
+            min-width: 1300px;
         }
 
         .grid-table th {
-            background: var(--color-header);
+            background: var(--header-bg);
             color: white;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 700;
-            padding: 12px 8px;
+            padding: 10px 6px;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border: 1px solid #374151;
+            letter-spacing: 1.2px;
         }
 
         .grid-table th:first-child {
-            width: 70px;
-            min-width: 70px;
-            font-size: 10px;
+            width: 65px;
+            min-width: 65px;
             letter-spacing: 0.5px;
+            font-size: 10px;
         }
 
         .grid-table td {
-            border: 1px solid var(--color-border);
+            border: 1px solid var(--border-light);
             padding: 0;
             vertical-align: top;
         }
 
         .time-column {
-            background: #f9fafb;
+            background: var(--bg-subtle);
             font-size: 10px;
             font-weight: 600;
-            color: var(--color-text-muted);
+            color: var(--text-secondary);
             text-align: center;
-            padding: 6px 4px;
+            padding: 4px 2px;
             font-variant-numeric: tabular-nums;
+            border-right: 2px solid var(--border-medium) !important;
         }
 
-        /* Row striping for easier tracking */
-        .grid-table tbody tr:nth-child(even) .time-column {
-            background: #f3f4f6;
+        /* Subtle row striping */
+        .grid-table tbody tr:nth-child(odd) .day-cell {
+            background: white;
         }
-
         .grid-table tbody tr:nth-child(even) .day-cell {
-            background: #fafafa;
+            background: #fafbfc;
+        }
+        .grid-table tbody tr:nth-child(even) .time-column {
+            background: #f1f5f9;
         }
 
         .day-cell {
-            background: white;
-            height: 44px;
-            min-height: 44px;
+            height: 42px;
+            min-height: 42px;
             vertical-align: top;
         }
 
+        /* ACTIVITY BLOCKS */
         .activity-block {
-            padding: 3px 6px;
+            padding: 2px 5px;
             font-size: 9px;
-            line-height: 1.3;
+            line-height: 1.25;
             display: flex;
-            align-items: flex-start;
-            border-left: 4px solid;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4px;
+            border-left: 3px solid;
             overflow: hidden;
         }
 
         .activity-text {
             flex: 1;
             font-weight: 600;
-            white-space: normal;
-            word-wrap: break-word;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            letter-spacing: -0.1px;
+        }
+
+        .activity-time {
+            font-size: 8px;
+            font-weight: 500;
+            opacity: 0.7;
+            white-space: nowrap;
+            font-variant-numeric: tabular-nums;
         }
 
         /* ============================================
-           4 CATEGORY COLOR SYSTEM
+           REFINED COLOR CATEGORIES
+           Sophisticated, print-optimized palette
            ============================================ */
 
-        /* DEEP WORK - Coursework, Lectures, Study */
-        .activity-deepwork {
-            background: var(--deep-work-bg);
-            border-left-color: var(--deep-work-border);
-            color: var(--deep-work-text);
+        /* Morning Routine - Warm Amber */
+        .activity-wakeup {
+            background: #fef3c7;
+            border-left-color: #d97706;
+            color: #92400e;
         }
 
-        /* HEALTH - Gym, Meals, Sleep, Shower */
-        .activity-health {
-            background: var(--health-bg);
-            border-left-color: var(--health-border);
-            color: var(--health-text);
+        /* Training - Strong Blue */
+        .activity-aim {
+            background: #dbeafe;
+            border-left-color: #2563eb;
+            color: #1e40af;
         }
 
-        /* TRANSITIONS - Breaks, Travel, Getting Ready */
-        .activity-transition {
-            background: var(--transition-bg);
-            border-left-color: var(--transition-border);
-            color: var(--transition-text);
+        /* Gaming - Indigo */
+        .activity-cs2 {
+            background: #e0e7ff;
+            border-left-color: #4f46e5;
+            color: #3730a3;
         }
 
-        /* PERSONAL - Relax, Gaming, Calls, Shopping */
-        .activity-personal {
-            background: var(--personal-bg);
-            border-left-color: var(--personal-border);
-            color: var(--personal-text);
+        /* Exercise - Emerald */
+        .activity-gym {
+            background: #d1fae5;
+            border-left-color: #059669;
+            color: #065f46;
+        }
+
+        /* Shower - Cyan */
+        .activity-shower {
+            background: #cffafe;
+            border-left-color: #0891b2;
+            color: #155e75;
+        }
+
+        /* Lectures - Golden */
+        .activity-lecture {
+            background: #fef9c3;
+            border-left-color: #ca8a04;
+            color: #854d0e;
+        }
+
+        /* Coursework - Rose */
+        .activity-coursework {
+            background: #ffe4e6;
+            border-left-color: #e11d48;
+            color: #9f1239;
+        }
+
+        /* Lunch - Pink */
+        .activity-lunch {
+            background: #fce7f3;
+            border-left-color: #db2777;
+            color: #9d174d;
+        }
+
+        /* Dinner - Deep Pink */
+        .activity-dinner {
+            background: #fce7f3;
+            border-left-color: #be185d;
+            color: #831843;
+        }
+
+        /* Meal Prep - Lime */
+        .activity-prep {
+            background: #ecfccb;
+            border-left-color: #65a30d;
+            color: #3f6212;
+        }
+
+        /* Cooking - Orange */
+        .activity-cook {
+            background: #ffedd5;
+            border-left-color: #ea580c;
+            color: #9a3412;
+        }
+
+        /* Relax - Violet */
+        .activity-relax {
+            background: #ede9fe;
+            border-left-color: #7c3aed;
+            color: #5b21b6;
+        }
+
+        /* Sleep - Deep Indigo */
+        .activity-sleep {
+            background: #e0e7ff;
+            border-left-color: #4338ca;
+            color: #3730a3;
+        }
+
+        /* Shopping - Teal */
+        .activity-shopping {
+            background: #ccfbf1;
+            border-left-color: #0d9488;
+            color: #115e59;
+        }
+
+        /* Calls - Fuchsia */
+        .activity-calls {
+            background: #fae8ff;
+            border-left-color: #c026d3;
+            color: #86198f;
+        }
+
+        /* Breaks/Transitions - Slate */
+        .activity-break {
+            background: #f1f5f9;
+            border-left-color: #64748b;
+            color: #475569;
         }
 
         /* ============================================
@@ -251,12 +339,10 @@
                 max-width: 100% !important;
                 width: 100% !important;
                 box-shadow: none !important;
-                border-radius: 0 !important;
             }
 
             header {
-                padding: 8px 12px !important;
-                border-bottom-width: 2px !important;
+                padding: 10px 14px !important;
             }
 
             .page-title {
@@ -272,7 +358,7 @@
             }
 
             .schedule-wrapper {
-                padding: 8px !important;
+                padding: 10px !important;
                 overflow: visible !important;
             }
 
@@ -284,8 +370,8 @@
 
             .grid-table th {
                 padding: 8px 4px !important;
-                font-size: 10px !important;
-                letter-spacing: 1px !important;
+                font-size: 9px !important;
+                letter-spacing: 0.8px !important;
             }
 
             .grid-table th:first-child {
@@ -300,18 +386,22 @@
             }
 
             .day-cell {
-                height: 36px !important;
-                min-height: 36px !important;
+                height: 34px !important;
+                min-height: 34px !important;
             }
 
             .activity-block {
-                padding: 2px 4px !important;
-                font-size: 8px !important;
-                border-left-width: 3px !important;
+                padding: 1px 3px !important;
+                font-size: 7.5px !important;
+                border-left-width: 2px !important;
             }
 
             .activity-text {
-                font-size: 8px !important;
+                font-size: 7.5px !important;
+            }
+
+            .activity-time {
+                font-size: 6.5px !important;
             }
 
             .container, .schedule-wrapper, .grid-table {
@@ -323,7 +413,7 @@
 <body>
     <div class="container">
         <header>
-            <div class="header-left">
+            <div class="header-content">
                 <h1 class="page-title">Weekly Schedule</h1>
                 <p class="page-motto">"Discipline is choosing between what you want now and what you want most."</p>
             </div>
@@ -339,13 +429,13 @@
                 <thead>
                     <tr>
                         <th>Time</th>
-                        <th>Mon</th>
-                        <th>Tue</th>
-                        <th>Wed</th>
-                        <th>Thu</th>
-                        <th>Fri</th>
-                        <th>Sat</th>
-                        <th>Sun</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
                     </tr>
                 </thead>
                 <tbody id="tableBody">
@@ -355,125 +445,124 @@
     </div>
 
     <script>
-        // SIMPLIFIED ACTIVITY NAMES
         let scheduleData = {
             Monday: [
-                { time: '4:30 - 5:30', activity: 'Morning Routine' },
-                { time: '5:30 - 6:15', activity: 'Aim Training' },
+                { time: '4:30 - 5:30', activity: 'Wake-up + Have Breakfast + Use Bathroom' },
+                { time: '5:30 - 6:15', activity: 'Aim Training - Static' },
                 { time: '6:15 - 6:35', activity: 'Break' },
                 { time: '6:35 - 9:00', activity: 'Coursework' },
-                { time: '9:00 - 9:30', activity: 'Prep for Uni' },
-                { time: '10:00 - 11:00', activity: 'MEng Project' },
+                { time: '9:00 - 9:30', activity: 'Break + Get Ready for Uni + Pack Lunch' },
+                { time: '10:00 - 11:00', activity: 'MEng Project Meeting' },
                 { time: '11:00 - 11:30', activity: 'Lunch' },
-                { time: '11:30 - 13:00', activity: 'Air Pollution' },
-                { time: '13:00 - 13:30', activity: 'Travel Home' },
-                { time: '13:30 - 14:30', activity: 'Air Pollution' },
-                { time: '14:30 - 15:00', activity: 'Prep for Gym' },
-                { time: '15:00 - 16:40', activity: 'Gym + Shower' },
+                { time: '11:30 - 13:00', activity: 'Air Pollution Control Technologies' },
+                { time: '13:00 - 13:30', activity: 'Come back home + Change' },
+                { time: '13:30 - 14:30', activity: 'Air Pollution Control Technologies' },
+                { time: '14:30 - 15:00', activity: 'Break + Get ready for Gym' },
+                { time: '15:00 - 16:40', activity: 'Gym + Come back home + Shower' },
                 { time: '16:40 - 17:00', activity: 'Break' },
                 { time: '17:00 - 18:00', activity: 'Coursework' },
                 { time: '18:00 - 20:00', activity: 'Dinner + Calls' },
                 { time: '20:00 - 21:00', activity: 'Coursework' },
-                { time: '21:00 - 22:30', activity: 'Wind Down' }
+                { time: '21:00 - 22:30', activity: 'Relax + Sleep' }
             ],
             Tuesday: [
-                { time: '4:30 - 5:30', activity: 'Morning Routine' },
-                { time: '5:30 - 6:15', activity: 'Aim Training' },
+                { time: '4:30 - 5:30', activity: 'Wake-up + Have Breakfast + Use Bathroom' },
+                { time: '5:30 - 6:15', activity: 'Aim Training - Static' },
                 { time: '6:15 - 6:35', activity: 'Break' },
-                { time: '6:35 - 9:00', activity: 'Land Management' },
+                { time: '6:35 - 9:00', activity: 'Contaminated Land Management' },
                 { time: '9:00 - 9:20', activity: 'Break' },
                 { time: '9:20 - 11:40', activity: 'Coursework' },
-                { time: '11:40 - 12:30', activity: 'Lunch + Prep' },
+                { time: '11:40 - 12:30', activity: 'Lunch + Break + Get Ready for Uni' },
                 { time: '13:00 - 14:00', activity: 'Energy Storage' },
-                { time: '14:00 - 14:30', activity: 'Travel Home' },
+                { time: '14:00 - 14:30', activity: 'Come back home + Change' },
                 { time: '14:30 - 15:30', activity: 'Energy Storage' },
-                { time: '15:30 - 16:00', activity: 'Prep for Gym' },
-                { time: '16:00 - 17:40', activity: 'Gym + Shower' },
+                { time: '15:30 - 16:00', activity: 'Break + Get ready for Gym' },
+                { time: '16:00 - 17:40', activity: 'Gym + Come back home + Shower' },
                 { time: '17:40 - 18:00', activity: 'Break' },
                 { time: '18:00 - 20:00', activity: 'Dinner + Calls' },
                 { time: '20:00 - 21:00', activity: 'Coursework' },
-                { time: '21:00 - 22:30', activity: 'Wind Down' }
+                { time: '21:00 - 22:30', activity: 'Relax + Sleep' }
             ],
             Wednesday: [
-                { time: '4:30 - 5:30', activity: 'Morning Routine' },
-                { time: '5:30 - 6:15', activity: 'Aim Training' },
+                { time: '4:30 - 5:30', activity: 'Wake-up + Have Breakfast + Use Bathroom' },
+                { time: '5:30 - 6:15', activity: 'Aim Training - Target Switching' },
                 { time: '6:15 - 6:35', activity: 'Break' },
                 { time: '6:35 - 9:00', activity: 'Coursework' },
-                { time: '9:00 - 9:30', activity: 'Prep for Uni' },
-                { time: '10:00 - 11:00', activity: 'Water Treatment' },
-                { time: '11:00 - 11:30', activity: 'Travel Home' },
-                { time: '11:30 - 12:30', activity: 'Water Treatment' },
+                { time: '9:00 - 9:30', activity: 'Break + Get Ready for Uni' },
+                { time: '10:00 - 11:00', activity: 'Water Treatment and Resource Recovery' },
+                { time: '11:00 - 11:30', activity: 'Come back home + Change' },
+                { time: '11:30 - 12:30', activity: 'Water Treatment and Resource Recovery' },
                 { time: '12:30 - 13:00', activity: 'Lunch' },
-                { time: '13:00 - 14:00', activity: 'Water Treatment' },
-                { time: '14:00 - 14:30', activity: 'Prep for Gym' },
-                { time: '14:30 - 16:10', activity: 'Gym + Shower' },
+                { time: '13:00 - 14:00', activity: 'Water Treatment and Resource Recovery' },
+                { time: '14:00 - 14:30', activity: 'Break + Get ready for Gym' },
+                { time: '14:30 - 16:10', activity: 'Gym + Come back home + Shower' },
                 { time: '16:10 - 16:30', activity: 'Break' },
                 { time: '16:30 - 18:00', activity: 'Coursework' },
                 { time: '18:00 - 20:00', activity: 'Dinner + Calls' },
                 { time: '20:00 - 21:00', activity: 'Coursework' },
-                { time: '21:00 - 22:30', activity: 'Wind Down' }
+                { time: '21:00 - 22:30', activity: 'Relax + Sleep' }
             ],
             Thursday: [
-                { time: '4:30 - 5:30', activity: 'Morning Routine' },
-                { time: '5:30 - 6:15', activity: 'Aim Training' },
+                { time: '4:30 - 5:30', activity: 'Wake-up + Have Breakfast + Use Bathroom' },
+                { time: '5:30 - 6:15', activity: 'Aim Training - Target Switching' },
                 { time: '6:15 - 6:35', activity: 'Break' },
                 { time: '6:35 - 7:05', activity: 'Shower' },
                 { time: '7:05 - 11:40', activity: 'Coursework' },
-                { time: '11:40 - 12:30', activity: 'Lunch + Prep' },
+                { time: '11:40 - 12:30', activity: 'Lunch + Break + Get Ready for Uni' },
                 { time: '13:00 - 14:00', activity: 'Energy Storage' },
-                { time: '14:00 - 15:00', activity: 'Land Management' },
-                { time: '15:00 - 15:30', activity: 'Travel Home' },
-                { time: '15:30 - 16:30', activity: 'Land Management' },
+                { time: '14:00 - 15:00', activity: 'Contaminated Land Management' },
+                { time: '15:00 - 15:30', activity: 'Come back home + Change' },
+                { time: '15:30 - 16:30', activity: 'Contaminated Land Management' },
                 { time: '16:30 - 17:00', activity: 'Break' },
                 { time: '17:00 - 18:00', activity: 'Coursework' },
                 { time: '18:00 - 20:00', activity: 'Dinner + Calls' },
                 { time: '20:00 - 21:00', activity: 'Coursework' },
-                { time: '21:00 - 22:30', activity: 'Wind Down' }
+                { time: '21:00 - 22:30', activity: 'Relax + Sleep' }
             ],
             Friday: [
-                { time: '4:30 - 5:30', activity: 'Morning Routine' },
-                { time: '5:30 - 6:15', activity: 'Aim Training' },
+                { time: '4:30 - 5:30', activity: 'Wake-up + Have Breakfast + Use Bathroom' },
+                { time: '5:30 - 6:15', activity: 'Aim Training - Static' },
                 { time: '6:15 - 6:35', activity: 'Break' },
                 { time: '6:35 - 9:35', activity: 'Coursework' },
                 { time: '9:35 - 9:55', activity: 'Break' },
                 { time: '9:55 - 11:40', activity: 'Coursework' },
-                { time: '11:40 - 12:30', activity: 'Lunch + Prep' },
-                { time: '13:00 - 14:00', activity: 'Air Pollution' },
-                { time: '14:00 - 14:30', activity: 'Travel Home' },
-                { time: '14:30 - 15:00', activity: 'Prep for Gym' },
-                { time: '15:00 - 16:40', activity: 'Gym + Shower' },
+                { time: '11:40 - 12:30', activity: 'Lunch + Break + Get Ready for Uni' },
+                { time: '13:00 - 14:00', activity: 'Air Pollution Control Technologies' },
+                { time: '14:00 - 14:30', activity: 'Come back home + Change' },
+                { time: '14:30 - 15:00', activity: 'Break + Get ready for Gym' },
+                { time: '15:00 - 16:40', activity: 'Gym + Come back home + Shower' },
                 { time: '16:40 - 17:00', activity: 'Break' },
                 { time: '17:00 - 18:00', activity: 'Coursework' },
                 { time: '18:00 - 20:00', activity: 'Dinner + Calls' },
                 { time: '20:00 - 21:00', activity: 'Coursework' },
-                { time: '21:00 - 22:30', activity: 'Wind Down' }
+                { time: '21:00 - 22:30', activity: 'Relax + Sleep' }
             ],
             Saturday: [
-                { time: '4:30 - 5:30', activity: 'Morning Routine' },
-                { time: '5:30 - 6:15', activity: 'Aim Training' },
+                { time: '4:30 - 5:30', activity: 'Wake-up + Have Breakfast + Use Bathroom' },
+                { time: '5:30 - 6:15', activity: 'Aim Training - Dynamic Clicking' },
                 { time: '6:15 - 6:35', activity: 'Break' },
                 { time: '6:35 - 9:00', activity: 'Shopping' },
                 { time: '9:00 - 9:30', activity: 'Break' },
-                { time: '10:00 - 11:00', activity: 'Meal Prep' },
-                { time: '11:00 - 12:00', activity: 'Cooking' },
+                { time: '10:00 - 11:00', activity: 'Prep Ingredients' },
+                { time: '11:00 - 12:00', activity: 'Cook' },
                 { time: '12:00 - 12:30', activity: 'Lunch' },
-                { time: '13:00 - 18:00', activity: 'Cooking' },
+                { time: '13:00 - 18:00', activity: 'Cook' },
                 { time: '18:00 - 20:00', activity: 'Dinner + Calls' },
                 { time: '20:00 - 21:00', activity: 'Coursework' },
-                { time: '21:00 - 22:30', activity: 'Wind Down' }
+                { time: '21:00 - 22:30', activity: 'Relax + Sleep' }
             ],
             Sunday: [
-                { time: '4:30 - 5:30', activity: 'Morning Routine' },
-                { time: '5:30 - 6:15', activity: 'Aim Training' },
+                { time: '4:30 - 5:30', activity: 'Wake-up + Have Breakfast + Use Bathroom' },
+                { time: '5:30 - 6:15', activity: 'Aim Training - Tracking' },
                 { time: '6:15 - 6:35', activity: 'Break' },
-                { time: '6:35 - 7:05', activity: 'Aim Training' },
+                { time: '6:35 - 7:05', activity: 'Aim Training - Static' },
                 { time: '7:05 - 9:05', activity: 'CS2' },
                 { time: '10:00 - 12:00', activity: 'Relax' },
                 { time: '12:00 - 12:30', activity: 'Lunch' },
                 { time: '12:30 - 18:00', activity: 'Relax' },
                 { time: '18:00 - 20:00', activity: 'Dinner + Calls' },
                 { time: '20:00 - 21:00', activity: 'Relax' },
-                { time: '21:00 - 22:30', activity: 'Wind Down' }
+                { time: '21:00 - 22:30', activity: 'Relax + Sleep' }
             ]
         };
 
@@ -482,43 +571,28 @@
             return hours * 60 + minutes;
         }
 
-        // 4 CATEGORY CLASSIFICATION
         function getActivityClass(activity) {
             const act = activity.toLowerCase();
-
-            // DEEP WORK - Academic, Study, Focused Work
-            if (act.includes('coursework') ||
-                act.includes('air pollution') ||
+            if (act.includes('wake') || act.includes('breakfast') || act.includes('bathroom')) return 'activity-wakeup';
+            if (act.includes('aim training')) return 'activity-aim';
+            if (act.includes('cs2')) return 'activity-cs2';
+            if (act.includes('gym')) return 'activity-gym';
+            if (act.includes('shower')) return 'activity-shower';
+            if (act.includes('air pollution control') ||
                 act.includes('energy storage') ||
-                act.includes('land management') ||
+                act.includes('contaminated land') ||
                 act.includes('water treatment') ||
-                act.includes('meng project') ||
-                act.includes('aim training')) {
-                return 'activity-deepwork';
-            }
-
-            // HEALTH - Physical wellbeing, meals, sleep
-            if (act.includes('gym') ||
-                act.includes('shower') ||
-                act.includes('morning routine') ||
-                act.includes('lunch') ||
-                act.includes('dinner') ||
-                act.includes('wind down') ||
-                act.includes('cooking') ||
-                act.includes('meal prep')) {
-                return 'activity-health';
-            }
-
-            // PERSONAL - Leisure, social, recovery
-            if (act.includes('relax') ||
-                act.includes('cs2') ||
-                act.includes('calls') ||
-                act.includes('shopping')) {
-                return 'activity-personal';
-            }
-
-            // TRANSITIONS - Everything else (breaks, travel, prep)
-            return 'activity-transition';
+                act.includes('meng project')) return 'activity-lecture';
+            if (act.includes('coursework')) return 'activity-coursework';
+            if (act.includes('lunch')) return 'activity-lunch';
+            if (act.includes('dinner')) return 'activity-dinner';
+            if (act.includes('prep ingredients')) return 'activity-prep';
+            if (act.includes('cook')) return 'activity-cook';
+            if (act.includes('sleep')) return 'activity-sleep';
+            if (act.includes('shopping')) return 'activity-shopping';
+            if (act.includes('relax') || act.includes('chill')) return 'activity-relax';
+            if (act.includes('calls')) return 'activity-calls';
+            return 'activity-break';
         }
 
         function renderGrid() {
@@ -577,6 +651,11 @@
                                 textSpan.className = 'activity-text';
                                 textSpan.textContent = slot.activity;
                                 activityDiv.appendChild(textSpan);
+
+                                const timeSpan = document.createElement('span');
+                                timeSpan.className = 'activity-time';
+                                timeSpan.textContent = slot.time;
+                                activityDiv.appendChild(timeSpan);
                             }
 
                             activityDiv.title = slot.time + ': ' + slot.activity;
