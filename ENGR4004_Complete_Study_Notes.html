@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGR4004 Energy Storage | Complete Study Guide</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Crimson+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+        :root {
+            --color-primary: #1e3a5f;
+            --color-secondary: #2c5282;
+            --color-accent: #c19a6b;
+            --color-bg: #fafaf9;
+            --color-bg-alt: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-muted: #525252;
+            --color-border: #e5e5e5;
+            --color-highlight: #fef3c7;
+            
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Crimson Pro', Georgia, serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--color-text);
+            background: var(--color-bg);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 40px 100px;
+        }
+
+        .module-header {
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 50px;
+            border-bottom: 3px solid var(--color-primary);
+        }
+
+        .module-code {
+            font-family: var(--font-body);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+        }
+
+        .module-title {
+            font-family: var(--font-display);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .topic-header {
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 50px;
+        }
+
+        .topic-number {
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 16px;
+        }
+
+        .topic-title {
+            font-family: var(--font-display);
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--color-text);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .topic-subtitle {
+            font-size: 19px;
+            font-style: italic;
+            color: var(--color-text-muted);
+            font-weight: 400;
+        }
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-header {
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .section-number {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: 23px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-top: 32px;
+            margin-bottom: 14px;
+        }
+
+        h4 {
+            font-family: var(--font-body);
+            font-size: 19px;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-top: 24px;
+            margin-bottom: 11px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        strong { font-weight: 700; color: var(--color-text); }
+        em { font-style: italic; }
+
+        ul, ol {
+            margin: 18px 0 18px 28px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+
+        .definition {
+            background: var(--color-bg-alt);
+            border-left: 4px solid var(--color-primary);
+            padding: 22px 26px;
+            margin: 28px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .definition-term {
+            font-family: var(--font-display);
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 11px;
+        }
+
+        .formula-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid var(--color-primary);
+            border-radius: 6px;
+            padding: 20px;
+            margin: 22px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+        }
+
+        .formula-title {
+            font-family: var(--font-display);
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 13px;
+        }
+        
+        /* Enhanced mathematical notation */
+        .formula {
+            font-family: 'Times New Roman', 'Cambria Math', serif;
+            font-size: 20px;
+            font-style: italic;
+            background: white;
+            padding: 14px 18px;
+            border-radius: 4px;
+            margin: 12px 0;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            line-height: 1.8;
+        }
+        
+        .formula-main {
+            font-size: 24px;
+            font-weight: 500;
+            color: #1e3a5f;
+            display: block;
+            margin: 8px 0;
+        }
+        
+        .sub {
+            font-size: 0.65em;
+            vertical-align: sub;
+            font-style: normal;
+        }
+        
+        .sup {
+            font-size: 0.65em;
+            vertical-align: super;
+            font-style: normal;
+        }
+        
+        .greek {
+            font-family: 'Times New Roman', serif;
+            font-style: normal;
+        }
+        
+        .var {
+            font-style: italic;
+        }
+        
+        .frac {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+        }
+        
+        .frac-num {
+            display: block;
+            border-bottom: 1px solid #1e3a5f;
+            padding-bottom: 2px;
+            margin-bottom: 2px;
+        }
+        
+        .frac-den {
+            display: block;
+            padding-top: 2px;
+        }
+        
+        .sqrt {
+            position: relative;
+            display: inline-block;
+            padding: 0 6px;
+        }
+        
+        .sqrt::before {
+            content: "√";
+            font-size: 1.4em;
+            font-style: normal;
+            position: absolute;
+            left: -8px;
+            top: -4px;
+        }
+        
+        .sqrt::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 6px;
+            right: 0;
+            border-top: 1.5px solid #1e3a5f;
+        }
+
+        .highlight-box {
+            background: var(--color-highlight);
+            border-left: 4px solid var(--color-accent);
+            padding: 18px 22px;
+            margin: 22px 0;
+        }
+
+        .exam-focus {
+            background: linear-gradient(to right, #fff5f5, #ffffff);
+            border-left: 4px solid #dc2626;
+            padding: 18px 22px;
+            margin: 28px 0;
+        }
+
+        .exam-focus-title {
+            font-family: var(--font-display);
+            font-size: 19px;
+            font-weight: 700;
+            color: #dc2626;
+            margin-bottom: 11px;
+        }
+
+        .not-tested {
+            background: linear-gradient(to right, #f0f9ff, #ffffff);
+            border-left: 4px solid #3b82f6;
+            padding: 16px 20px;
+            margin: 22px 0;
+            font-size: 16px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 22px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            font-size: 17px;
+        }
+
+        th {
+            background: var(--color-primary);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        tr:nth-child(even) {
+            background: var(--color-bg-alt);
+        }
+
+        .quick-reference {
+            background: var(--color-bg-alt);
+            border: 2px solid var(--color-accent);
+            border-radius: 8px;
+            padding: 28px;
+            margin: 35px 0;
+        }
+
+        .quick-reference-title {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-top: 18px;
+        }
+
+        .page-break {
+            margin: 50px 0;
+            border-bottom: 2px dashed var(--color-border);
+            padding-bottom: 30px;
+        }
+
+        code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+        }
+
+        .warning-box {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 16px 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Module Header -->
+        <div class="module-header">
+            <div class="module-code">ENGR4004 — LEVEL 4 MODULE — SPRING SEMESTER 2025-2026</div>
+            <div class="module-title">Energy Storage</div>
+            <p style="font-size: 17px; color: var(--color-text-muted); margin-top: 12px; line-height: 1.6;">
+                <strong>Complete Exam-Focused Study Notes</strong><br>
+                Comprehensive Coverage Based on Past Papers 2014-2025<br>
+                All Formulas · Key Concepts · Calculation Strategies · Exam Tips
+            </p>
+        </div>
+
+        <!-- Quick Navigation Guide -->
+        <div class="quick-reference">
+            <div class="quick-reference-title">📚 Study Guide Navigation</div>
+            <div class="grid-2col">
+                <div>
+                    <h4 style="color: var(--color-primary); margin-bottom: 12px;">Section 1: Thermo-Mechanical</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 16px;">
+                        <li style="padding: 6px 0;">→ Pumped Hydro (PHES)</li>
+                        <li style="padding: 6px 0;">→ Flywheels</li>
+                        <li style="padding: 6px 0;">→ CAES Systems</li>
+                        <li style="padding: 6px 0;">→ Thermal Energy Storage</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--color-primary); margin-bottom: 12px;">Section 2: Electrochemical</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 16px;">
+                        <li style="padding: 6px 0;">→ Lead-Acid Batteries</li>
+                        <li style="padding: 6px 0;">→ Lithium-Ion Batteries</li>
+                        <li style="padding: 6px 0;">→ Supercapacitors (EDLCs)</li>
+                        <li style="padding: 6px 0;">→ Flow Batteries & Fuel Cells</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <h4 style="color: var(--color-primary); margin-bottom: 12px;">Section 3: Underground & Synthetic Fuels</h4>
+                <p style="font-size: 16px; margin: 0;">
+                    → Hydrogen Storage (700 bar tanks, salt caverns, depleted fields) <br>
+                    → Green Ammonia (Haber-Bosch, electrochemical production)<br>
+                    → Underground Gas Storage (formation volume factor, cushion gas)
+                </p>
+            </div>
+        </div>
+
+        <!-- EXAM FORMAT GUIDE -->
+        <div class="exam-focus">
+            <div class="exam-focus-title">📋 Exam Format & Strategy</div>
+            <p><strong>Standard Format:</strong> 2-hour closed-book examination with formula sheet provided</p>
+            <p><strong>Structure:</strong> Answer ALL questions (typically 3-4 major questions worth 100 marks each, total 400 marks)</p>
+            <p><strong>Question Types:</strong></p>
+            <ul style="margin-top: 8px;">
+                <li><strong>Calculations (60-70%):</strong> Pumped hydro design, flywheel energy/speed, CAES work, battery capacity, gas storage</li>
+                <li><strong>Explanations (20-30%):</strong> Working principles, compare technologies, advantages/disadvantages</li>
+                <li><strong>Diagrams (10%):</strong> Battery operation, CAES systems, flow processes</li>
+            </ul>
+            <p style="margin-top: 10px;"><strong>Key Success Factors:</strong> Know ALL formulas, practice unit conversions, understand when to use each equation, show ALL working</p>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- ============================================ -->
+        <!-- SECTION 1: THERMO-MECHANICAL ENERGY STORAGE -->
+        <!-- ============================================ -->
+
+        <div class="topic-header">
+            <div class="topic-number">SECTION 01</div>
+            <div class="topic-title">Thermo-Mechanical<br>Energy Storage</div>
+            <div class="topic-subtitle">Pumped Hydro · Flywheels · CAES · Thermal Storage</div>
+        </div>
+
+        <!-- Critical Concept: Energy vs Exergy -->
+        <div class="definition">
+            <div class="definition-term">⚡ Critical Concept: Energy vs Exergy</div>
+            <p><strong>Energy</strong> cannot be created or destroyed (1st Law of Thermodynamics). <strong>Exergy</strong> is the maximum useful work that can be extracted from energy as it comes into equilibrium with surroundings (2nd Law). <em>Exergy can be destroyed but cannot be created!</em></p>
+            <p style="margin-top: 12px;"><strong>Key Distinction:</strong></p>
+            <ul style="margin-top: 8px;">
+                <li><strong>Electricity = 100% Exergy</strong> (can do work directly)</li>
+                <li><strong>Heat ≠ 100% Exergy</strong> (depends on temperature)
+                    <ul>
+                        <li>At very high T: 1J heat ≈ 1J exergy</li>
+                        <li>Near ambient T: 1J heat ≈ 0J exergy</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="formula-box">
+            <div class="formula-title">🔑 Exergy from Heat (Carnot Efficiency)</div>
+            <p><strong>B = Q × (1 - T₀/T_heat)</strong></p>
+            <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+            <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                <li><strong>B</strong> = Exergy (J)</li>
+                <li><strong>Q</strong> = Heat energy (J)</li>
+                <li><strong>T₀</strong> = Ambient temperature (typically 280-300 K)</li>
+                <li><strong>T_heat</strong> = Temperature at which heat supplied (K)</li>
+            </ul>
+            <p style="margin-top: 12px; font-family: var(--font-body);"><strong>Carnot Efficiency:</strong> η = 1 - T₀/T_heat</p>
+        </div>
+
+        <!-- 1.1 PUMPED HYDRO -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">1.1 PUMPED HYDRO ENERGY STORAGE (PHES)</div>
+                <h2>Pumped Hydro</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ EXTREMELY HIGH EXAM FREQUENCY</div>
+                <p><strong>Tested in:</strong> 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021A, 2021B, 2022, 2023, 2024, 2025</p>
+                <p><strong>Typical marks:</strong> 5-20 marks | <strong>Question types:</strong> Calculate mass/volume of water, power required, energy stored</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Pumped Hydro Energy Storage</div>
+                <p>Most common grid-scale storage worldwide. Water is pumped to upper reservoir using cheap electricity, then released through turbines to generate power on demand. Delivers very competitive $/kWh for large-scale applications (100s-1000s MWh).</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ PRIMARY FORMULA: Gravitational Potential Energy</div>
+                <div class="formula formula-main">
+                    <span class="var">E</span> = <span class="var">m</span> · <span class="var">g</span> · <span class="var">h</span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>E</strong> = Energy (J)</li>
+                    <li><strong>m</strong> = Mass of water (kg)</li>
+                    <li><strong>g</strong> = 9.81 m/s²</li>
+                    <li><strong>h</strong> = Height difference (m)</li>
+                </ul>
+                <p style="margin-top: 12px; font-family: var(--font-body);"><strong>Related:</strong> <span class="var">m</span> = <span class="greek">ρ</span><span class="var">V</span> where <span class="greek">ρ</span> = 1000 kg/m³ for water</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Power Output/Input</div>
+                <div class="formula formula-main">
+                    <span class="var">P</span> = <span class="greek">ρ</span> · <span class="var">g</span> · <span class="var">Q</span> · <span class="var">h</span> · <span class="greek">η</span>
+                </div>
+                <div class="formula" style="margin-top: 10px;">
+                    <span class="var">P</span> = <span class="var">E</span> / <span class="var">t</span> <span style="font-style: normal;">(for constant power over time t)</span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where <span class="var">Q</span> = volumetric flow rate (m³/s), <span class="greek">η</span> = efficiency (0.70-0.85)</p>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>💡 Essential Conversions for PHES Calculations:</strong></p>
+                <ul>
+                    <li>1 kWh = 3.6 × 10⁶ J = 3.6 MJ</li>
+                    <li>1 MWh = 3.6 × 10⁹ J = 3.6 GJ</li>
+                    <li>Volume of water: V = m/ρ where ρ = 1000 kg/m³</li>
+                    <li>1 m³ water = 1000 kg = 1 tonne</li>
+                </ul>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">📝 Standard Exam Question Pattern</div>
+                <p><strong>Given:</strong> Energy to store (kWh), height (m), time to charge/discharge</p>
+                <p><strong>Find:</strong> Mass of water, volume of reservoir, power of pump</p>
+                <p style="margin-top: 10px;"><strong>Solution Steps:</strong></p>
+                <ol style="margin-top: 8px;">
+                    <li>Convert energy to Joules: E(J) = kWh × 3.6×10⁶</li>
+                    <li>Calculate mass: m = E/(g×h)</li>
+                    <li>Calculate volume: V = m/1000 (gives m³)</li>
+                    <li>Calculate power: P = E/time (convert time to seconds)</li>
+                </ol>
+            </div>
+
+            <h3>Worked Example (EP2021B, Q1a - 20 marks)</h3>
+            <div class="highlight-box">
+                <p><strong>Question:</strong> A water-tower beside a lake must store 1 kWh exergy. Water surface when half-full is 40m above lake. Tank can charge/discharge in 30 min. Find water volume and pump power.</p>
+                
+                <p style="margin-top: 12px;"><strong>Solution:</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li><strong>Step 1:</strong> E = 1 kWh = 3.6 × 10⁶ J</li>
+                    <li><strong>Step 2:</strong> m = E/(gh) = 3.6×10⁶/(9.81×40) = 9,174 kg ≈ 9.17 tonnes</li>
+                    <li><strong>Step 3:</strong> V = m/ρ = 9174/1000 = 9.174 m³</li>
+                    <li><strong>Step 4:</strong> P = E/t = 1 kWh / 0.5 h = 2 kW</li>
+                </ul>
+                <p style="margin-top: 12px;"><strong>Answer:</strong> Tank holds 9.17 m³ water; pump power = 2 kW</p>
+            </div>
+
+            <h3>Key Characteristics</h3>
+            <table>
+                <tr><th>Parameter</th><th>Value</th></tr>
+                <tr><td>Round-trip efficiency</td><td>70-85%</td></tr>
+                <tr><td>Response time</td><td>< 1 minute</td></tr>
+                <tr><td>Lifetime</td><td>50-100+ years</td></tr>
+                <tr><td>Energy scale</td><td>100s-1000s MWh</td></tr>
+                <tr><td>Capital cost</td><td>Competitive for GWh scale</td></tr>
+            </table>
+
+            <h3>System Configurations</h3>
+            <ul>
+                <li><strong>Two-reservoir (most common):</strong> Separate upper/lower reservoirs, channels drilled through rock</li>
+                <li><strong>Seawater PHES:</strong> Ocean as lower reservoir (e.g., Okinawa Yanbaru: 214 MWh, 31.4 MW)</li>
+                <li><strong>Variable geometry (KOPS II):</strong> Separate pump/turbine, can run hydraulic short-circuit for grid balancing</li>
+            </ul>
+
+            <div class="not-tested">
+                <p><strong>🔵 Not Previously Tested:</strong> Detailed KOPS II calculations, cavitation analysis, specific plant design specifications</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 1.2 FLYWHEELS -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">1.2 FLYWHEEL ENERGY STORAGE</div>
+                <h2>Flywheels</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ CRITICAL EXAM TOPIC - APPEARS IN ~90% OF PAPERS</div>
+                <p><strong>Tested in:</strong> 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021A, 2021B, 2022, 2023, 2024, 2025</p>
+                <p><strong>Marks:</strong> 10-30 per question | <strong>Types:</strong> Calculate v_max, mass, energy, compare to other storage</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Flywheel Energy Storage</div>
+                <p>Stores energy as rotational kinetic energy in spinning rotor. Used for centuries to smooth torque pulsations. Modern flywheels use composite materials at high speeds (10,000+ rpm) in vacuum with magnetic bearings.</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ KINETIC ENERGY (Two Forms - Know Both!)</div>
+                <div class="formula formula-main">
+                    <span class="var">E</span> = ½ <span class="var">I</span> <span class="greek">ω</span><span class="sup">2</span> = ½ <span class="var">m</span> <span class="var">v</span><span class="sup">2</span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>I</strong> = Moment of inertia (kg·m²)</li>
+                    <li><strong>ω</strong> = Angular velocity (rad/s)</li>
+                    <li><strong>m</strong> = Mass (kg)</li>
+                    <li><strong>v</strong> = Peripheral (tangential) velocity (m/s)</li>
+                </ul>
+                <p style="margin-top: 12px; font-family: var(--font-body);"><strong>Relationship:</strong> <span class="var">v</span> = <span class="greek">ω</span> × <span class="var">r</span> (where <span class="var">r</span> = radius)</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐⭐⭐ MOST IMPORTANT FLYWHEEL FORMULA</div>
+                <div class="formula formula-main" style="font-size: 28px;">
+                    <span class="var">v</span><span class="sub">max</span> = <span class="sqrt"><span class="frac"><span class="frac-num"><span class="greek">σ</span><span class="sub">max</span></span><span class="frac-den"><span class="greek">ρ</span></span></span></span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Maximum peripheral speed limited by hoop stress.</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>σ<sub>max</sub></strong> = Maximum allowable stress (Pa or MPa)</li>
+                    <li><strong>ρ</strong> = Material density (kg/m³)</li>
+                </ul>
+                <p style="margin-top: 12px; font-family: var(--font-body);"><strong>Critical Insight:</strong> Best materials have high σ<sub>max</sub>/ρ ratio (strength-to-density). This is why composites beat steel!</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ MAXIMUM ENERGY STORED (Independent of Density!)</div>
+                <div class="formula formula-main">
+                    <span class="var">E</span><span class="sub">max</span> = <span class="frac"><span class="frac-num"><span class="greek">σ</span><span class="sub">max</span> × <span class="var">V</span></span><span class="frac-den">2</span></span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where <span class="var">V</span> = volume of structural material (m³)</p>
+                <p style="margin-top: 10px; font-family: var(--font-body);"><strong>Why this matters:</strong> For same stress limit and volume, energy storage is INDEPENDENT of density. But lighter materials allow higher <span class="var">v</span>, so better specific energy (J/kg).</p>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>⚠️ COMMON EXAM MISTAKE:</strong> Students forget to convert MPa to Pa!</p>
+                <p style="margin-top: 8px;">1 MPa = 10⁶ Pa = 1,000,000 Pa</p>
+                <p>Example: σ_max = 1000 MPa = 1000 × 10⁶ Pa = 1 × 10⁹ Pa (1 GPa)</p>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">📝 STANDARD FLYWHEEL CALCULATION METHOD</div>
+                <p><strong>Given:</strong> Energy to store, material properties (σ_max, ρ)</p>
+                <p><strong>Find:</strong> Mass of flywheel, maximum speed</p>
+                <p style="margin-top: 12px;"><strong>Universal 3-Step Solution:</strong></p>
+                <ol style="margin-top: 8px;">
+                    <li><strong>Calculate v_max:</strong> v_max = √(σ_max/ρ) [CHECK UNITS!]</li>
+                    <li><strong>Use E = ½mv²:</strong> Rearrange to m = 2E/v²</li>
+                    <li><strong>Convert as needed:</strong> ω = v/r if angular velocity asked</li>
+                </ol>
+            </div>
+
+            <h3>Worked Example (EP2021B, Q1b - 20 marks)</h3>
+            <div class="highlight-box">
+                <p><strong>Question:</strong> Flywheel stores 1 kWh. Material: σ_max = 1000 MPa, ρ = 2500 kg/m³. Find rotor mass.</p>
+                
+                <p style="margin-top: 12px;"><strong>Solution:</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li><strong>Step 1:</strong> Convert σ_max = 1000 MPa = 1000×10⁶ Pa = 10⁹ Pa</li>
+                    <li><strong>Step 2:</strong> v_max = √(σ_max/ρ) = √(10⁹/2500) = √(4×10⁵) = 632.46 m/s</li>
+                    <li><strong>Step 3:</strong> E = 1 kWh = 3.6×10⁶ J</li>
+                    <li><strong>Step 4:</strong> m = 2E/v² = 2×3.6×10⁶/(632.46)² = 18.0 kg</li>
+                </ul>
+                <p style="margin-top: 12px;"><strong>Answer:</strong> m_rotor = 18.0 kg</p>
+            </div>
+
+            <h3>Material Comparison</h3>
+            <table>
+                <tr><th>Material</th><th>σ_max (MPa)</th><th>ρ (kg/m³)</th><th>v_max (m/s)</th><th>Specific Energy</th></tr>
+                <tr><td>Steel</td><td>500-1000</td><td>7800</td><td>253-358</td><td>Low</td></tr>
+                <tr><td>Composite</td><td>1000-2000</td><td>1600-2500</td><td>632-894</td><td>High (3-10× steel)</td></tr>
+            </table>
+
+            <h3>Additional Formulas</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Power & Torque</div>
+                <p><strong>P = τ × ω</strong> (Power = Torque × Angular velocity)</p>
+                <p><strong>τ = I × α</strong> (Torque = Inertia × Angular acceleration)</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Strain Energy (Usually Negligible)</div>
+                <p><strong>E_strain = (σ² × V) / (2E')</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where E' = Young's modulus. Typically << kinetic energy.</p>
+            </div>
+
+            <h3>Solid Annulus vs Thin Rim</h3>
+            <ul>
+                <li><strong>Thin rim (Ri ≈ Ro):</strong> All material at same radius, pure hoop stress, most efficient</li>
+                <li><strong>Solid annulus:</strong> Has inner/outer radius, both radial & hoop stresses. Material utilization ~1.5× better than pure hoop when Ri/Ro small</li>
+            </ul>
+
+            <div class="not-tested">
+                <p><strong>🔵 Less Commonly Tested:</strong> Solid disk stress distributions, external rotor machines with magnets, detailed moment of inertia calculations for complex geometries</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 1.3 COMPRESSED AIR ENERGY STORAGE (CAES) -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">1.3 COMPRESSED AIR ENERGY STORAGE (CAES)</div>
+                <h2>Compressed Air Energy Storage</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ FREQUENTLY TESTED - COMPLEX CALCULATIONS</div>
+                <p><strong>Tested in:</strong> 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2022, 2023</p>
+                <p><strong>Marks:</strong> 15-50 per question | <strong>Types:</strong> D-CAES vs A-CAES comparison, isothermal vs adiabatic work, exergy calculations</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">CAES: An EXERGY Storage System</div>
+                <p>CAES compresses air into underground caverns/tanks. When power needed, air is heated and expanded through turbines. <strong>Critical concept:</strong> CAES stores exergy in TWO ways: (1) compressed air pressure, (2) thermal energy. Sophisticated designs store most exergy as high-grade heat (cheaper than storing pressure).</p>
+            </div>
+
+            <h3>Two Main Types</h3>
+            
+            <h4>Diabatic CAES (D-CAES)</h4>
+            <p><strong>Existing plants:</strong> Huntorf (Germany, 1978), McIntosh (USA, 1991)</p>
+            <ul>
+                <li>Isothermal compression (heat rejected to ambient - wasted)</li>
+                <li>Natural gas combustion for reheating during expansion</li>
+                <li>Round-trip efficiency: 40-50%</li>
+                <li>Uses fuel, but 60% less than gas turbine alone</li>
+            </ul>
+
+            <h4>Adiabatic CAES (A-CAES)</h4>
+            <p><strong>No existing commercial plants (still developmental)</strong></p>
+            <ul>
+                <li>Zero net heat input - all compression heat stored</li>
+                <li>Thermal store returns heat during expansion</li>
+                <li>Round-trip efficiency: 60-70% (theoretical)</li>
+                <li>No fuel consumption</li>
+            </ul>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ ADIABATIC PROCESS (Q = 0, No Heat Transfer)</div>
+                <p><strong>Temperature-Pressure Relationship:</strong></p>
+                <p>T₂/T₁ = (p₂/p₁)^((γ-1)/γ)</p>
+                <p style="margin-top: 12px;"><strong>Work Done:</strong></p>
+                <p>W = (γ/(γ-1)) × p₁V₁ × [(p₂/p₁)^((γ-1)/γ) - 1]</p>
+                <p style="margin-top: 12px; font-family: var(--font-body);">Where γ = 1.4 for air, (γ-1)/γ = 0.286</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ ISOTHERMAL PROCESS (T = constant)</div>
+                <p><strong>Pressure-Volume:</strong> p₁V₁ = p₂V₂</p>
+                <p style="margin-top: 12px;"><strong>Work Done:</strong></p>
+                <p>W = p₁V₁ × ln(p₂/p₁) = nRT × ln(p₂/p₁)</p>
+                <p style="margin-top: 12px; font-family: var(--font-body);">Note: ln = natural logarithm</p>
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>💡 KEY INSIGHT: Isothermal vs Adiabatic</strong></p>
+                <p>For same pressure ratio, isothermal expansion ALWAYS recovers more work than adiabatic. Why? Adiabatic process cools the gas as it expands, reducing available energy.</p>
+                <p style="margin-top: 10px;"><strong>Work Ratio:</strong> W_adiabatic/W_isothermal = r^0.286 / ln(r)</p>
+                <ul style="margin-top: 8px;">
+                    <li>At r=10: ratio = 1.31 (adiabatic gives 31% more work, needs preheating)</li>
+                    <li>At r=100: ratio = 1.84</li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ PRESSURE EXERGY (Critical for CAES)</div>
+                <p><strong>B = p₀V₀ × ln(p_max/p₀)</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>B</strong> = Pressure exergy (J)</li>
+                    <li><strong>p₀</strong> = Ambient pressure (typically 101,325 Pa)</li>
+                    <li><strong>V₀</strong> = Volume at ambient pressure (m³)</li>
+                    <li><strong>p_max</strong> = Maximum storage pressure (Pa)</li>
+                </ul>
+            </div>
+
+            <h3>Storage Types: Isobaric vs Isochoric</h3>
+            <table>
+                <tr><th>Type</th><th>Pressure</th><th>Implementation</th><th>Best For</th></tr>
+                <tr>
+                    <td><strong>Isobaric</strong></td>
+                    <td>Constant</td>
+                    <td>Underwater bags, deep salt caverns (geostatic pressure)</td>
+                    <td>Grid-scale storage</td>
+                </tr>
+                <tr>
+                    <td><strong>Isochoric</strong></td>
+                    <td>Variable</td>
+                    <td>Rigid pressure vessels</td>
+                    <td>Small-scale only</td>
+                </tr>
+            </table>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">📝 EXAM QUESTION TYPE: Compare & Calculate</div>
+                <p><strong>Common questions:</strong></p>
+                <ol style="margin-top: 8px;">
+                    <li><strong>Distinguish isobaric/isochoric (2014, 8 marks):</strong> Define, advantages/disadvantages, implementation</li>
+                    <li><strong>Multi-stage compression advice (2014, 7 marks):</strong> Single vs multi-stage with intercooling, temperature limits</li>
+                    <li><strong>Calculate work/exergy (2019, 2020, 2022):</strong> Isothermal work, adiabatic temperature rise, exergy split</li>
+                </ol>
+            </div>
+
+            <h3>Worked Example (EP2019 - Multi-stage Compression)</h3>
+            <div class="highlight-box">
+                <p><strong>Question:</strong> 5-stage compression to 120 bar from 1 bar. Equal pressure ratios, cooling to ambient after each stage. Calculate temperature rise and work per stage.</p>
+                
+                <p style="margin-top: 12px;"><strong>Solution:</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li><strong>Step 1:</strong> Total ratio r = 120/1 = 120</li>
+                    <li><strong>Step 2:</strong> Per-stage ratio r_stage = (120)^(1/5) = 2.605</li>
+                    <li><strong>Step 3:</strong> Temperature rise: T₂/T₁ = (2.605)^0.286 = 1.298</li>
+                    <li>If T₁ = 290K, then T₂ = 376.5K (rise of 86.5K)</li>
+                    <li><strong>Step 4:</strong> Work per stage per kg: W = c_p × (T₂-T₁) = 1005 × 86.5 = 87 kJ/kg</li>
+                </ul>
+            </div>
+
+            <div class="not-tested">
+                <p><strong>🔵 Not Previously Tested:</strong> Detailed thermocline storage calculations, specific CAES plant configurations, underwater dual-pressure MPAS/HPAS systems</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 1.4 THERMAL ENERGY STORAGE -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">1.4 THERMAL ENERGY STORAGE (TES)</div>
+                <h2>Thermal Energy Storage</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ MODERATELY TESTED - EXERGY CALCULATIONS CRITICAL</div>
+                <p><strong>Tested in:</strong> 2014, 2015, 2016, 2019</p>
+                <p><strong>Marks:</strong> 20-50 per question | <strong>Focus:</strong> Exergy calculations with changing temperature, sensible vs latent heat</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Three Types of Thermal Storage</div>
+                <ol style="margin-top: 12px;">
+                    <li><strong>Sensible Heat:</strong> Energy stored by changing temperature (no phase change)</li>
+                    <li><strong>Latent Heat:</strong> Energy stored through phase change (solid↔liquid) at constant temperature</li>
+                    <li><strong>Thermochemical:</strong> Energy stored in reversible chemical reactions (emerging technology)</li>
+                </ol>
+            </div>
+
+            <h3>Sensible Heat Storage</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ SENSIBLE HEAT ENERGY</div>
+                <p><strong>Q = m × c_p × ΔT</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>Q</strong> = Heat energy (J)</li>
+                    <li><strong>m</strong> = Mass (kg)</li>
+                    <li><strong>c_p</strong> = Specific heat capacity (J/kg·K)</li>
+                    <li><strong>ΔT</strong> = Temperature change (K)</li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐⭐⭐ EXERGY FROM SENSIBLE HEAT (Variable Temperature)</div>
+                <p><strong>B = m × c_p × [ΔT - T₀ × ln(T_hot/T_cold)]</strong></p>
+                <p style="margin-top: 12px; font-family: var(--font-body);"><strong>Or in integral form for variable c_p:</strong></p>
+                <p>B = m ∫[T_cold to T_hot] c_p(T) × (1 - T₀/T) dT</p>
+                <p style="margin-top: 12px; font-family: var(--font-body);">This formula appears in MANY exam questions! Master it!</p>
+            </div>
+
+            <h4>Common Sensible Heat Materials</h4>
+            <table>
+                <tr><th>Material</th><th>c_p (J/kg·K)</th><th>ρ (kg/m³)</th><th>Cost</th><th>Use</th></tr>
+                <tr><td>Water</td><td>4200</td><td>1000</td><td>Very cheap</td><td>Low-temp (0-100°C)</td></tr>
+                <tr><td>Thermal oil</td><td>2000-3000</td><td>800-900</td><td>Moderate</td><td>100-400°C</td></tr>
+                <tr><td>Molten salt</td><td>1400-1600</td><td>1700-2000</td><td>Expensive</td><td>250-650°C (CSP)</td></tr>
+                <tr><td>Concrete/Rock</td><td>800-1000</td><td>2000-2500</td><td>Very cheap</td><td>High-temp solid storage</td></tr>
+            </table>
+
+            <h3>Latent Heat Storage (Phase Change Materials - PCM)</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ LATENT HEAT ENERGY</div>
+                <p><strong>Q = m × ΔH_f</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>ΔH_f</strong> = Heat of fusion (latent heat) (J/kg)</li>
+                    <li>Occurs at constant T_melt</li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">EXERGY FROM LATENT HEAT</div>
+                <p><strong>B = Q × (1 - T₀/T_melt)</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Simpler than sensible heat because T is constant during phase change</p>
+            </div>
+
+            <h4>PCM Requirements for TES</h4>
+            <ul>
+                <li><strong>Melting point:</strong> Must match application temperature range</li>
+                <li><strong>High ΔH_f:</strong> More energy per kg</li>
+                <li><strong>High thermal conductivity:</strong> Faster charging/discharging</li>
+                <li><strong>Small volume change:</strong> Avoid container damage</li>
+                <li><strong>Thermal stability:</strong> No degradation over many cycles</li>
+                <li><strong>Non-toxic, non-flammable:</strong> Safety</li>
+                <li><strong>Low cost:</strong> Economic viability</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>💡 Sensible vs Latent Heat Storage</strong></p>
+                <p><strong>Advantages of Latent (PCM):</strong></p>
+                <ul>
+                    <li>Higher energy density (more energy per kg/m³)</li>
+                    <li>Constant temperature during phase change (good for some applications)</li>
+                </ul>
+                <p style="margin-top: 10px;"><strong>Disadvantages of Latent:</strong></p>
+                <ul>
+                    <li>Poor thermal conductivity limits heat transfer rate</li>
+                    <li>More expensive materials</li>
+                    <li>Exergetic loss if HTF temperature >> T_melt</li>
+                </ul>
+            </div>
+
+            <h3>Worked Example (EP2016, Q7 - 60 marks total)</h3>
+            <div class="highlight-box">
+                <p><strong>Question:</strong> 30 tonnes KNO₃ (potassium nitrate) cycled between 305-395°C. Properties: ΔH_f = 103 kJ/kg, c_p,solid = 1.43 kJ/kg·K, c_p,liquid = 1.37 kJ/kg·K, T_melt = 337°C (610K). Calculate total energy and exergy (T₀ = 298K).</p>
+                
+                <p style="margin-top: 12px;"><strong>Solution - Total Energy:</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li>E_total = Q_solid + Q_latent + Q_liquid</li>
+                    <li>Q_solid = 30,000 × 1.43 × (610-578) = 1.373 MJ</li>
+                    <li>Q_latent = 30,000 × 103 = 3.09 MJ</li>
+                    <li>Q_liquid = 30,000 × 1.37 × (668-610) = 2.384 MJ</li>
+                    <li><strong>Total = 6.85 GJ</strong></li>
+                </ul>
+
+                <p style="margin-top: 12px;"><strong>Solution - Exergy (more complex):</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li>B_solid = m×c_p×[ΔT - T₀×ln(T₂/T₁)] = 0.684 GJ</li>
+                    <li>B_latent = Q×(1-T₀/T_melt) = 3.09×(1-298/610) = 1.58 GJ</li>
+                    <li>B_liquid = m×c_p×[ΔT - T₀×ln(T₂/T₁)] = 0.910 GJ</li>
+                    <li><strong>Total Exergy = 3.24 GJ (vs 6.85 GJ energy!)</strong></li>
+                </ul>
+                <p style="margin-top: 12px;"><strong>Key lesson:</strong> Only 47% of stored energy is exergy! The rest cannot do useful work.</p>
+            </div>
+
+            <h3>Applications</h3>
+            <ul>
+                <li><strong>Concentrated Solar Power (CSP):</strong> Molten salt storage at 250-650°C</li>
+                <li><strong>A-CAES:</strong> Stores compression heat for later expansion</li>
+                <li><strong>District heating:</strong> Large hot water tanks</li>
+                <li><strong>Industrial waste heat recovery:</strong> PCM or sensible storage</li>
+            </ul>
+
+            <div class="not-tested">
+                <p><strong>🔵 Not Previously Tested:</strong> Thermochemical storage (reversible reactions like MgH₂ ↔ Mg + H₂), detailed thermocline calculations, specific CSP plant configurations</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- ============================================ -->
+        <!-- SECTION 2: ELECTROCHEMICAL ENERGY STORAGE -->
+        <!-- ============================================ -->
+
+        <div class="topic-header">
+            <div class="topic-number">SECTION 02</div>
+            <div class="topic-title">Electrochemical<br>Energy Storage</div>
+            <div class="topic-subtitle">Batteries · Supercapacitors · Flow Batteries · Fuel Cells</div>
+        </div>
+
+        <div class="definition">
+            <div class="definition-term">Electrochemical Energy Storage Devices (EESDs)</div>
+            <p>Convert chemical energy directly to electrical energy through redox reactions. Include batteries (enclosed system), flow batteries (external electrolyte tanks), supercapacitors (surface charge storage), and fuel cells (continuous fuel supply).</p>
+        </div>
+
+        <!-- 2.1 LEAD-ACID BATTERIES -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">2.1 LEAD-ACID BATTERIES</div>
+                <h2>Lead-Acid Batteries</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ HIGHLY TESTED - ELECTROCHEMISTRY FUNDAMENTALS</div>
+                <p><strong>Tested in:</strong> 2015, 2016, 2017, 2018, 2020, 2021, 2022, 2023</p>
+                <p><strong>Marks:</strong> 20-30 per question | <strong>Focus:</strong> Half-reactions, Gibbs free energy, theoretical capacity calculations</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Lead-Acid Battery</div>
+                <p>Invented by Gaston Planté in 1859. First rechargeable (secondary) battery. Still widely used for vehicle SLI (Starting, Lighting, Ignition) and backup power despite low specific energy (30-50 Wh/kg) because of low cost and reliability.</p>
+            </div>
+
+            <h3>⭐ Electrochemical Reactions (MUST MEMORIZE)</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">LEAD-ACID BATTERY REACTIONS (DISCHARGE →)</div>
+                <p><strong>Negative electrode (anode):</strong></p>
+                <p>Pb + HSO₄⁻ → PbSO₄ + H⁺ + 2e⁻</p>
+                <p style="margin-top: 12px;"><strong>Positive electrode (cathode):</strong></p>
+                <p>PbO₂ + 3H⁺ + HSO₄⁻ + 2e⁻ → PbSO₄ + 2H₂O</p>
+                <p style="margin-top: 12px;"><strong>Overall reaction:</strong></p>
+                <p>PbO₂ + Pb + 2H₂SO₄ ⇌ 2PbSO₄ + 2H₂O</p>
+                <p style="margin-top: 12px; font-family: var(--font-body);"><strong>Key points:</strong> n = 2 electrons, E°_cell = 2.0 V, MW_reactants = 643 g/mol</p>
+            </div>
+
+            <h3>Key Characteristics</h3>
+            <table>
+                <tr><th>Parameter</th><th>Value</th></tr>
+                <tr><td>Cell voltage</td><td>2.0 V (6 cells in series = 12V car battery)</td></tr>
+                <tr><td>Specific energy</td><td>30-50 Wh/kg</td></tr>
+                <tr><td>Cycle life</td><td>300-1000 cycles</td></tr>
+                <tr><td>Self-discharge</td><td>5-15% per month</td></tr>
+                <tr><td>Operating temp</td><td>-20°C to +60°C</td></tr>
+                <tr><td>Cost</td><td>$50-150/kWh (lowest of all batteries)</td></tr>
+            </table>
+
+            <h3>Advantages & Disadvantages</h3>
+            <p><strong>✅ Advantages:</strong></p>
+            <ul>
+                <li>Low cost and simple to manufacture</li>
+                <li>Wide operating temperature range</li>
+                <li>Good high-current performance</li>
+                <li>Established recycling infrastructure</li>
+            </ul>
+
+            <p style="margin-top: 15px;"><strong>❌ Disadvantages:</strong></p>
+            <ul>
+                <li>Low specific energy (heavy for energy stored)</li>
+                <li>Limited cycle life</li>
+                <li>Slow charging (12-16 hours typically)</li>
+                <li>Must be stored charged (sulfation if discharged)</li>
+                <li>Produces H₂ and O₂ gas (needs ventilation)</li>
+                <li>Lead is highly toxic (environmental concern)</li>
+            </ul>
+
+            <h3>Side Reactions (Causes of Degradation)</h3>
+            <ul>
+                <li><strong>Water electrolysis:</strong> H₂O → ½O₂ + 2H⁺ + 2e⁻ (at positive); 2H⁺ + 2e⁻ → H₂ (at negative)</li>
+                <li><strong>Sulfation:</strong> Crystalline PbSO₄ forms if discharged too long (irreversible)</li>
+                <li><strong>Self-discharge:</strong> Slow conversion of active materials without external circuit</li>
+            </ul>
+
+            <div class="not-tested">
+                <p><strong>🔵 Less Commonly Tested:</strong> Detailed degradation mechanisms, specific construction details, lead-acid flow batteries</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 2.2 LITHIUM-ION BATTERIES -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">2.2 LITHIUM-ION BATTERIES</div>
+                <h2>Lithium-Ion Batteries</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ EXTREMELY HIGH FREQUENCY - CALCULATIONS ESSENTIAL</div>
+                <p><strong>Tested in:</strong> Every year 2015-2025 (11 consecutive years!)</p>
+                <p><strong>Marks:</strong> 20-50 per question | <strong>Must know:</strong> Half-reactions, capacity calculations, Nernst equation</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Lithium-Ion Battery</div>
+                <p>First commercialized by Sony in 1991. Revolutionized portable electronics and now dominates EV market. High specific energy (150-250 Wh/kg), long cycle life (1000-5000 cycles), but more expensive and requires sophisticated battery management system (BMS).</p>
+            </div>
+
+            <h3>⭐⭐⭐ Electrochemical Reactions (MEMORIZE MULTIPLE CATHODE TYPES)</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">LiFePO₄ (Lithium Iron Phosphate) - MOST COMMON IN EXAMS</div>
+                <p><strong>Negative electrode (anode) during discharge:</strong></p>
+                <p>LiC₆ → 6C + Li⁺ + e⁻</p>
+                <p style="margin-top: 12px;"><strong>Positive electrode (cathode) during discharge:</strong></p>
+                <p>FePO₄ + Li⁺ + e⁻ → LiFePO₄</p>
+                <p style="margin-top: 12px;"><strong>Overall:</strong></p>
+                <p>LiC₆ + FePO₄ → 6C + LiFePO₄</p>
+                <p style="margin-top: 12px; font-family: var(--font-body);"><strong>Key:</strong> n=1, E°=3.2V, MW_reactants=230 g/mol</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">LiCoO₂ (Lithium Cobalt Oxide) - Also Tested</div>
+                <p><strong>Overall:</strong> Li₁₋ₓCoO₂ + LiₓC₆ → LiCoO₂ + 6C</p>
+                <p style="margin-top: 10px; font-family: var(--font-body);"><strong>Key:</strong> n=1, E°=4.0V (higher voltage!), MW=170 g/mol</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">NMC811 (LiNi₀.₈Mn₀.₁Co₀.₁O₂) - Recent Exams</div>
+                <p><strong>Overall:</strong> Ni₀.₈Mn₀.₁Co₀.₁O₂ + LiC₆ → LiNi₀.₈Mn₀.₁Co₀.₁O₂ + 6C</p>
+                <p style="margin-top: 10px; font-family: var(--font-body);"><strong>Key:</strong> n=1, E°=3.8V, MW=169 g/mol</p>
+            </div>
+
+            <h3>⭐⭐⭐ CRITICAL FORMULAS FOR BATTERY CALCULATIONS</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Gibbs Free Energy & Cell Potential</div>
+                <p><strong>ΔG° = -nFE°_cell</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>n</strong> = number of electrons transferred per mole</li>
+                    <li><strong>F</strong> = Faraday constant = 96,485 C/mol</li>
+                    <li><strong>E°_cell</strong> = Standard cell potential (V)</li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐⭐⭐ THEORETICAL SPECIFIC CAPACITY</div>
+                <p><strong>Specific Capacity = nF / MW</strong></p>
+                <p style="margin-top: 12px; font-family: var(--font-body);">Units: mAh/g or Ah/kg</p>
+                <p style="margin-top: 8px; font-family: var(--font-body);"><strong>Conversion:</strong> 1 Ah = 3600 C</p>
+                <p style="margin-top: 8px; font-family: var(--font-body);"><strong>So:</strong> Capacity (Ah/mol) = nF/3600 = n × 96485/3600 = n × 26.8</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐⭐⭐ THEORETICAL SPECIFIC ENERGY</div>
+                <p><strong>Specific Energy = (nF × E_cell) / MW</strong></p>
+                <p style="margin-top: 12px; font-family: var(--font-body);">Units: Wh/kg</p>
+                <p style="margin-top: 8px; font-family: var(--font-body);"><strong>Shortcut:</strong> Specific Energy = Specific Capacity × Voltage</p>
+            </div>
+
+            <div class="warning-box">
+                <p><strong>⚠️ UNIT CONVERSION CRITICAL!</strong></p>
+                <p>1 Ah = 3600 C</p>
+                <p>1 Wh = 3600 J</p>
+                <p>MW must be in grams/mol for mAh/g or kg/mol for Ah/kg</p>
+            </div>
+
+            <h3>Worked Example (EP2015 - 60 marks, appears similarly in many exams)</h3>
+            <div class="highlight-box">
+                <p><strong>Question:</strong> For LiFePO₄ battery: E°=3.2V, n=1, MW_reactants=230 g/mol. Calculate theoretical specific capacity and specific energy.</p>
+                
+                <p style="margin-top: 12px;"><strong>Solution:</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li><strong>Step 1 - Capacity:</strong> 
+                        <ul style="margin-top: 4px;">
+                            <li>nF = 1 × 96,485 = 96,485 C/mol</li>
+                            <li>In Ah: 96,485/3600 = 26.8 Ah/mol</li>
+                            <li><strong>Specific capacity = 26.8/0.230 = 117 Ah/kg = 117 mAh/g</strong></li>
+                        </ul>
+                    </li>
+                    <li style="margin-top: 10px;"><strong>Step 2 - Energy:</strong>
+                        <ul style="margin-top: 4px;">
+                            <li>Method 1: Specific energy = Capacity × Voltage = 117 × 3.2 = 374 Wh/kg</li>
+                            <li>Method 2: nFE/MW = (96485 × 3.2)/0.230 = 1.344×10⁶ J/kg = 373 Wh/kg ✓</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>Nernst Equation (For Non-Standard Conditions)</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Nernst Equation</div>
+                <p><strong>E_cell = E°_cell - (RT/nF) × ln(Q)</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>R</strong> = 8.314 J/(mol·K)</li>
+                    <li><strong>T</strong> = Temperature (K)</li>
+                    <li><strong>Q</strong> = Reaction quotient (products/reactants)</li>
+                </ul>
+                <p style="margin-top: 10px; font-family: var(--font-body);"><strong>At 25°C:</strong> E = E° - (0.0257/n) × ln(Q)</p>
+            </div>
+
+            <h3>Commercial Battery Performance</h3>
+            <table>
+                <tr><th>Type</th><th>Specific Energy (Wh/kg)</th><th>Cycle Life</th><th>Cost ($/kWh)</th></tr>
+                <tr><td>18650 (LiCoO₂)</td><td>200-250</td><td>500-1000</td><td>200-400</td></tr>
+                <tr><td>21700 (NMC)</td><td>220-260</td><td>1000-2000</td><td>150-300</td></tr>
+                <tr><td>LiFePO₄</td><td>90-120</td><td>2000-5000</td><td>100-200</td></tr>
+            </table>
+
+            <p style="margin-top: 15px;"><strong>Why is practical energy lower than theoretical?</strong></p>
+            <ul>
+                <li>Inactive materials (current collectors, separator, casing, BMS) add weight</li>
+                <li>Not all active material participates in reaction</li>
+                <li>Lower actual voltage due to internal resistance</li>
+                <li>Safety margins prevent full depth of discharge</li>
+            </ul>
+
+            <h3>C-Rate Concept</h3>
+            <p><strong>C-rate defines charging/discharging speed:</strong></p>
+            <ul>
+                <li><strong>1C</strong> = full discharge in 1 hour (current = capacity in Ah)</li>
+                <li><strong>0.5C</strong> = full discharge in 2 hours</li>
+                <li><strong>2C</strong> = full discharge in 30 minutes</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Example:</strong> 4750 mAh battery at 1C draws 4.75A. At 0.2C draws 0.95A. At 2C draws 9.5A.</p>
+                <p style="margin-top: 10px;">Higher C-rates reduce available capacity due to polarization losses!</p>
+            </div>
+
+            <h3>⭐ Effects of C-Rate on Battery Performance (EP2025)</h3>
+            
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ NEW IN 2025 EXAM - LIKELY TO REPEAT</div>
+                <p><strong>Question type:</strong> Plot discharge curves at different C-rates, explain capacity reduction</p>
+            </div>
+
+            <p><strong>As C-rate increases (faster discharge):</strong></p>
+            <table>
+                <tr><th>Effect</th><th>Reason</th></tr>
+                <tr>
+                    <td><strong>Available capacity DECREASES</strong></td>
+                    <td>Incomplete utilization of active material, concentration gradients, kinetic limitations</td>
+                </tr>
+                <tr>
+                    <td><strong>Terminal voltage DROPS</strong></td>
+                    <td>Higher current → larger I×R<sub>internal</sub> voltage drop</td>
+                </tr>
+                <tr>
+                    <td><strong>Power output INCREASES</strong></td>
+                    <td>P = V×I, higher current despite lower voltage</td>
+                </tr>
+                <tr>
+                    <td><strong>Energy losses INCREASE</strong></td>
+                    <td>Heat dissipation P<sub>loss</sub> = I²R increases with I²</td>
+                </tr>
+                <tr>
+                    <td><strong>Temperature RISES</strong></td>
+                    <td>More heat generation from internal resistance</td>
+                </tr>
+            </table>
+
+            <h4>Typical Capacity Reduction with C-Rate</h4>
+            <ul>
+                <li><strong>0.2C:</strong> ~100% of rated capacity available</li>
+                <li><strong>1C:</strong> ~90-95% of rated capacity</li>
+                <li><strong>2C:</strong> ~80-85% of rated capacity</li>
+                <li><strong>>5C:</strong> Can drop to 60-70% of rated capacity</li>
+            </ul>
+
+            <h4>Discharge Curve Characteristics</h4>
+            <p><strong>Voltage vs State of Charge at different C-rates:</strong></p>
+            <ul>
+                <li><strong>Lower C-rates (0.2C):</strong> Relatively flat discharge plateau, voltage stays high longer</li>
+                <li><strong>Higher C-rates (2C):</strong> Steeper voltage drop, earlier cutoff voltage reached</li>
+                <li>All curves eventually converge at low SOC as kinetics become uniformly slow</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>💡 Exam Tip for C-rate Questions:</strong></p>
+                <p>When asked to sketch discharge curves:</p>
+                <ul style="margin-top: 8px;">
+                    <li>X-axis: Time (or Capacity in Ah)</li>
+                    <li>Y-axis: Voltage (V)</li>
+                    <li>Draw 3 curves (e.g., 0.2C, 1C, 2C)</li>
+                    <li>Higher C-rate curves:
+                        <ul>
+                            <li>Reach cutoff voltage faster (shorter time)</li>
+                            <li>Have lower average voltage throughout</li>
+                            <li>Deliver less total capacity (Ah)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <h3>State of Charge (SOC) & Depth of Discharge (DOD)</h3>
+            <ul>
+                <li><strong>SOC:</strong> Percentage of full charge remaining (100% = fully charged)</li>
+                <li><strong>DOD:</strong> Percentage of capacity discharged (DOD = 100% - SOC)</li>
+                <li><strong>Shallow cycling:</strong> Limited DOD (e.g., 0-30%) extends battery life</li>
+                <li><strong>Deep cycling:</strong> High DOD (e.g., 0-80%+) reduces cycle life but uses more capacity</li>
+            </ul>
+
+            <div class="not-tested">
+                <p><strong>🔵 Not Extensively Tested:</strong> Detailed SEI layer formation, dendrite growth mechanisms, specific BMS algorithms, thermal runaway detailed chemistry</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 2.3 SUPERCAPACITORS (EDLCs) -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">2.3 ELECTRIC DOUBLE-LAYER CAPACITORS (EDLCs)</div>
+                <h2>Supercapacitors</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ HIGHLY TESTED - SPECIFIC FORMULAS</div>
+                <p><strong>Tested in:</strong> 2018, 2020, 2021A, 2022, 2023, 2024</p>
+                <p><strong>Marks:</strong> 14-30 per question | <strong>Focus:</strong> Capacitance calculation from CV curves, specific energy/power</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Electric Double-Layer Capacitor (EDLC)</div>
+                <p>Stores energy electrostatically through ion adsorption at electrode-electrolyte interface (NOT chemical reactions like batteries). Provides very high power (kW/kg) but low energy (1-10 Wh/kg). Can charge/discharge in seconds for 500,000-1,000,000 cycles!</p>
+            </div>
+
+            <h3>⭐⭐⭐ CRITICAL SUPERCAPACITOR FORMULAS</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Capacitance from CV Curve</div>
+                <p><strong>C = i / ν</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>C</strong> = Capacitance (F)</li>
+                    <li><strong>i</strong> = Current from CV curve (A)</li>
+                    <li><strong>ν</strong> = Potential scan rate (V/s)</li>
+                </ul>
+                <p style="margin-top: 10px; font-family: var(--font-body);"><strong>Example:</strong> If CV shows i=2A at scan rate 1mV/s: C = 2/(0.001) = 2000F</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ ENERGY STORED</div>
+                <p><strong>E = ½ C U²</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where U = maximum voltage (V)</p>
+                <p style="margin-top: 8px; font-family: var(--font-body);"><strong>Specific Energy:</strong> E_specific = E/mass (Wh/kg)</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐⭐ MAXIMUM SPECIFIC POWER</div>
+                <p><strong>P_max = U² / (4 × ESR × mass)</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>ESR</strong> = Equivalent Series Resistance (Ω)</li>
+                    <li>Lower ESR → Higher power capability</li>
+                </ul>
+            </div>
+
+            <h3>Worked Example (EP2021A, Q4 - 30 marks)</h3>
+            <div class="highlight-box">
+                <p><strong>Question:</strong> CV curve shows i=2.0A at ν=1mV/s, U=3.0V, ESR=0.60mΩ, mass=220g. Find specific energy and specific power.</p>
+                
+                <p style="margin-top: 12px;"><strong>Solution:</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li><strong>Step 1 - Capacitance:</strong> C = i/ν = 2.0/0.001 = 2000 F</li>
+                    <li><strong>Step 2 - Energy:</strong> E = ½CU² = ½×2000×3² = 9000 J = 2.5 Wh</li>
+                    <li><strong>Step 3 - Specific Energy:</strong> 2.5/0.22 = 11.4 Wh/kg</li>
+                    <li><strong>Step 4 - Specific Power:</strong> P = 3²/(4×0.0006×0.22) = 17.0 kW/kg</li>
+                </ul>
+                <p style="margin-top: 12px;"><strong>Key insight:</strong> 1500× higher specific power than energy! Perfect for power applications.</p>
+            </div>
+
+            <h3>EDLCs vs Batteries - Key Differences</h3>
+            <table>
+                <tr><th>Parameter</th><th>EDLC</th><th>Li-ion Battery</th></tr>
+                <tr><td>Energy storage</td><td>Electrostatic (surface)</td><td>Chemical (bulk)</td></tr>
+                <tr><td>Voltage during discharge</td><td>Linear decrease</td><td>Relatively constant</td></tr>
+                <tr><td>Specific energy</td><td>1-10 Wh/kg</td><td>150-250 Wh/kg</td></tr>
+                <tr><td>Specific power</td><td>5-20 kW/kg</td><td>0.2-1 kW/kg</td></tr>
+                <tr><td>Cycle life</td><td>500k-1M cycles</td><td>1k-5k cycles</td></tr>
+                <tr><td>Charge time</td><td>Seconds</td><td>Hours</td></tr>
+            </table>
+
+            <h3>Applications</h3>
+            <ul>
+                <li><strong>Peak power assist:</strong> EVs, hybrid vehicles for acceleration/regenerative braking</li>
+                <li><strong>Grid stabilization:</strong> Frequency regulation, power quality</li>
+                <li><strong>Energy recovery:</strong> Cranes, elevators, subway braking systems</li>
+                <li><strong>Backup power:</strong> UPS systems, electronics</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>💡 Strategies to Increase EDLC Energy:</strong></p>
+                <ol>
+                    <li><strong>Increase specific capacitance:</strong> Higher surface area electrodes (activated carbon, graphene)</li>
+                    <li><strong>Increase operating voltage:</strong> Organic electrolytes allow 2.5-3V vs 1V for aqueous</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 2.4 FLOW BATTERIES & FUEL CELLS -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">2.4 REDOX FLOW BATTERIES & FUEL CELLS</div>
+                <h2>Flow Batteries & Fuel Cells</h2>
+            </div>
+
+            <h3>Redox Flow Batteries (RFBs)</h3>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ MODERATELY TESTED - UNDERSTANDING PRINCIPLES</div>
+                <p><strong>Tested in:</strong> 2016, 2018, 2020, 2021</p>
+                <p><strong>Marks:</strong> 10-20 per question | <strong>Focus:</strong> Difference from conventional batteries, advantages/disadvantages</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Redox Flow Battery</div>
+                <p>Electroactive species dissolved in external electrolyte tanks. Energy capacity determined by tank size (scalable!), power by electrode stack size. Can independently tune energy and power.</p>
+            </div>
+
+            <h4>⭐ Vanadium Redox Flow Battery (VRFB) - Most Common</h4>
+
+            <div class="formula-box">
+                <div class="formula-title">VRFB Electrochemistry</div>
+                <p><strong>Positive electrode:</strong> VO₂⁺ + 2H⁺ + e⁻ ⇌ VO²⁺ + H₂O</p>
+                <p><strong>Negative electrode:</strong> V²⁺ ⇌ V³⁺ + e⁻</p>
+                <p><strong>Overall:</strong> VO₂⁺ + 2H⁺ + V²⁺ ⇌ VO²⁺ + V³⁺ + H₂O</p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Cell voltage: 1.26 V</p>
+            </div>
+
+            <h4>Key Advantages of Flow Batteries</h4>
+            <ul>
+                <li><strong>Independent power/energy scaling:</strong> Tank size ≠ stack size</li>
+                <li><strong>Long cycle life:</strong> No electrode degradation (electrolyte replacement possible)</li>
+                <li><strong>Deep discharge OK:</strong> No damage from 100% DOD</li>
+                <li><strong>No self-discharge:</strong> When pumps off</li>
+                <li><strong>Room temperature operation:</strong> No thermal management complexity</li>
+            </ul>
+
+            <h4>Disadvantages</h4>
+            <ul>
+                <li><strong>Low energy density:</strong> Large footprint for given energy</li>
+                <li><strong>Complex system:</strong> Pumps, tanks, plumbing</li>
+                <li><strong>Cross-contamination:</strong> Gradual mixing through membrane</li>
+                <li><strong>Cost:</strong> Expensive for small-scale, competitive for MW-scale grid storage</li>
+            </ul>
+
+            <h3>Fuel Cells</h3>
+
+            <div class="definition">
+                <div class="definition-term">Fuel Cell</div>
+                <p>Electrochemical device that continuously converts chemical energy of fuel (usually H₂) directly to electricity. NOT energy storage (unless H₂ is stored), but energy conversion. High efficiency (40-60%, or >85% with CHP).</p>
+            </div>
+
+            <h4>⭐ Proton Exchange Membrane Fuel Cell (PEMFC)</h4>
+
+            <div class="formula-box">
+                <div class="formula-title">PEMFC Reactions</div>
+                <p><strong>Anode:</strong> H₂ → 2H⁺ + 2e⁻</p>
+                <p><strong>Cathode:</strong> ½O₂ + 2H⁺ + 2e⁻ → H₂O</p>
+                <p><strong>Overall:</strong> H₂ + ½O₂ → H₂O</p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Operating temp: ~80°C, requires high purity H₂ (99.999%)</p>
+            </div>
+
+            <h4>Fuel Cell Efficiency vs Temperature</h4>
+            <div class="formula-box">
+                <div class="formula-title">Thermodynamic Efficiency</div>
+                <p><strong>η = ΔG / ΔH</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">At 25°C: ΔH = -285.83 kJ/mol, ΔG = -237.13 kJ/mol</p>
+                <p style="margin-top: 8px; font-family: var(--font-body);">η = 237.13/285.83 = 83% (theoretical maximum)</p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Actual fuel cells: 40-60% electrical, >85% with combined heat & power</p>
+            </div>
+
+            <h4>Main Fuel Cell Types</h4>
+            <table>
+                <tr><th>Type</th><th>Operating T</th><th>Electrolyte</th><th>Application</th></tr>
+                <tr><td>PEMFC</td><td>80°C</td><td>Nafion membrane</td><td>Vehicles, portable</td></tr>
+                <tr><td>SOFC</td><td>500-1000°C</td><td>Ceramic (O²⁻ conductor)</td><td>Stationary power</td></tr>
+                <tr><td>AFC</td><td>70°C</td><td>Aqueous KOH</td><td>Space applications</td></tr>
+                <tr><td>PAFC</td><td>200°C</td><td>Phosphoric acid</td><td>Distributed generation</td></tr>
+                <tr><td>MCFC</td><td>650°C</td><td>Molten carbonate</td><td>Large stationary</td></tr>
+            </table>
+
+            <div class="not-tested">
+                <p><strong>🔵 Not Extensively Tested:</strong> Detailed SOFC chemistry, AFC/PAFC/MCFC specifics, fuel cell stack design, catalyst degradation mechanisms</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- ============================================ -->
+        <!-- SECTION 3: HYDROGEN & SYNTHETIC FUELS -->
+        <!-- ============================================ -->
+
+        <div class="topic-header">
+            <div class="topic-number">SECTION 03</div>
+            <div class="topic-title">Hydrogen & Synthetic<br>Fuels Storage</div>
+            <div class="topic-subtitle">Hydrogen · Ammonia · Underground Gas Storage</div>
+        </div>
+
+        <!-- 3.1 HYDROGEN STORAGE -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">3.1 HYDROGEN STORAGE</div>
+                <h2>Hydrogen Storage</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ FREQUENTLY TESTED - PRESSURE VESSELS & UNDERGROUND STORAGE</div>
+                <p><strong>Tested in:</strong> 2015, 2017, 2018, 2021A, 2023, 2024</p>
+                <p><strong>Marks:</strong> 20-40 per question | <strong>Focus:</strong> Tank calculations, underground storage types, pressure exergy</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Hydrogen Storage Challenges</div>
+                <p>H₂ has highest specific energy (142 MJ/kg) but lowest volumetric energy density due to low molecular weight. Storage options: compressed gas (700 bar vehicles), liquid (-253°C), metal hydrides, or underground for large-scale.</p>
+            </div>
+
+            <h3>High-Pressure Compressed H₂ Storage</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ Ideal Gas Density</div>
+                <p><strong>ρ = p / (RT)</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>R</strong> = Specific gas constant for H₂ = 4124 J/(kg·K)</li>
+                    <li><strong>p</strong> = Pressure (Pa)</li>
+                    <li><strong>T</strong> = Temperature (K)</li>
+                </ul>
+                <p style="margin-top: 10px; font-family: var(--font-body);"><strong>Example:</strong> At 700 bar, 300K: ρ = (700×10⁵)/(4124×300) = 56.6 kg/m³</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ Pressure Vessel Wall Thickness (Thin-Walled)</div>
+                <p><strong>t = (p × r) / σ_max</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>t</strong> = Wall thickness (m)</li>
+                    <li><strong>p</strong> = Internal pressure (Pa)</li>
+                    <li><strong>r</strong> = Internal radius (m)</li>
+                    <li><strong>σ_max</strong> = Maximum allowable stress (Pa)</li>
+                </ul>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Throttling Exergy Loss</div>
+                <p><strong>B_loss = p₀V₀ × [ln(p₁/p₀) - ln(p₂/p₀)]</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">When H₂ is throttled from high pressure p₁ to lower pressure p₂, exergy is destroyed (irreversible process with no work extraction)</p>
+            </div>
+
+            <h3>Worked Example (EP2021A, Q2 - 30 marks)</h3>
+            <div class="highlight-box">
+                <p><strong>Question:</strong> Vehicle needs 60 kWh output from H₂ engine (η=50%). H₂ stored at 700 bar, 300K. Calculate mass needed, tank volume, throttling exergy loss (to 7 bar), tank weight (r=125mm, σ_max=700MPa, ρ_steel=5000 kg/m³).</p>
+                
+                <p style="margin-top: 12px;"><strong>Solution:</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li><strong>Step 1 - H₂ mass:</strong> Need 120 kWh heat = 432 MJ. Mass = 432/142 = 3.04 kg</li>
+                    <li><strong>Step 2 - Density:</strong> ρ = (700×10⁵)/(4124×300) = 56.58 kg/m³</li>
+                    <li><strong>Step 3 - Volume (99% usable):</strong> V = 3.04/(0.99×56.58) = 0.0543 m³ = 54.3 L</li>
+                    <li><strong>Step 4 - Throttling loss:</strong> B = 101325×(3.04/56.58)×[ln(700)-ln(7)] = 21.1 MJ = 5.85 kWh (10% of output!)</li>
+                    <li><strong>Step 5 - Wall thickness:</strong> t = (70×10⁶×0.125)/(700×10⁶) = 0.0125 m = 12.5 mm</li>
+                    <li><strong>Step 6 - Tank mass:</strong> V_steel = 2πrt×L ≈ 0.0114 m³, mass = 57 kg (19× the H₂!)</li>
+                </ul>
+            </div>
+
+            <h3>Underground Hydrogen Storage</h3>
+
+            <h4>Storage Options (Large-Scale Only)</h4>
+            <ul>
+                <li><strong>Salt Caverns</strong> (Most promising)
+                    <ul>
+                        <li>Created by solution mining</li>
+                        <li>Gas-tight, high mechanical strength</li>
+                        <li>Fast injection/withdrawal rates</li>
+                        <li>Low cushion gas requirement (~30%)</li>
+                        <li>Example: Hypster project (France), Krummhörn (Germany 700 MWh)</li>
+                    </ul>
+                </li>
+                <li><strong>Depleted Oil/Gas Fields</strong>
+                    <ul>
+                        <li>Existing infrastructure</li>
+                        <li>Largest capacity potential</li>
+                        <li>Slower response than salt caverns</li>
+                        <li>May contain hydrocarbon residues (contamination risk)</li>
+                    </ul>
+                </li>
+                <li><strong>Aquifers</strong>
+                    <ul>
+                        <li>Most expensive to develop</li>
+                        <li>Highest base gas requirement</li>
+                        <li>Extensive testing needed</li>
+                        <li>Advantage: No hydrocarbon contamination</li>
+                    </ul>
+                </li>
+                <li><strong>Lined Rock Caverns (LRC)</strong>
+                    <ul>
+                        <li>Excavated hard rock + liner</li>
+                        <li>Example: HYBRIT Sweden (100 m³, 250 bar)</li>
+                        <li>Expensive but flexible location</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <table>
+                <tr><th>Storage Type</th><th>Capacity</th><th>Cost</th><th>Response Time</th><th>Best For</th></tr>
+                <tr><td>Salt Cavern</td><td>Medium</td><td>Medium</td><td>Fast (hours)</td><td>Peak shaving</td></tr>
+                <tr><td>Depleted Field</td><td>Highest</td><td>Lowest</td><td>Slow (days)</td><td>Seasonal storage</td></tr>
+                <tr><td>Aquifer</td><td>High</td><td>Highest</td><td>Slow</td><td>Last resort</td></tr>
+                <tr><td>LRC</td><td>Small-Medium</td><td>Very High</td><td>Fast</td><td>Near urban areas</td></tr>
+            </table>
+
+            <div class="not-tested">
+                <p><strong>🔵 Not Previously Tested:</strong> Metal hydride storage details, liquid H₂ specifics, geochemical reactions in underground storage, microbial impacts</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 3.2 GREEN AMMONIA -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">3.2 GREEN AMMONIA STORAGE</div>
+                <h2>Green Ammonia as Energy Carrier</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ MODERATELY TESTED - CONCEPTUAL UNDERSTANDING</div>
+                <p><strong>Tested in:</strong> 2021A, 2023, 2024</p>
+                <p><strong>Marks:</strong> 20-30 per question | <strong>Focus:</strong> Haber-Bosch process, advantages vs H₂, electrochemical production</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Green Ammonia</div>
+                <p>NH₃ produced using renewable electricity (via electrolytic H₂ + Haber-Bosch). Acts as hydrogen carrier with 40% energy density of petrol. Easier to store/transport than pure H₂ (liquid at -33°C or 10-15 bar vs -253°C or 700 bar for H₂).</p>
+            </div>
+
+            <h3>⭐ Haber-Bosch Process (Industrial Production)</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Haber-Bosch Chemistry</div>
+                <p><strong>N₂ + 3H₂ ⇌ 2NH₃ + Heat (ΔH = -92 kJ/mol)</strong></p>
+                <p style="margin-top: 10px; font-family: var(--font-body);"><strong>Conditions:</strong></p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li>Temperature: 300-550°C (kinetic compromise)</li>
+                    <li>Pressure: 100-300 bar (equilibrium favors high P)</li>
+                    <li>Catalyst: Iron-based (or Ruthenium for better performance)</li>
+                </ul>
+                <p style="margin-top: 10px; font-family: var(--font-body);"><strong>Why high T despite exothermic?</strong> N₂ triple bond is very strong, requires high activation energy. Reaction is thermodynamically favored at low T but kinetically too slow without high T.</p>
+            </div>
+
+            <h3>Electrochemical Ammonia Production (Emerging)</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Electrochemical Route</div>
+                <p><strong>Anode:</strong> 3H₂ → 6H⁺ + 6e⁻</p>
+                <p><strong>Cathode:</strong> N₂ + 6H⁺ + 6e⁻ → 2NH₃</p>
+                <p><strong>Overall:</strong> N₂ + 3H₂ → 2NH₃</p>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Potential advantages: Lower temperature, modular, renewable electricity direct integration. Still developmental!</p>
+            </div>
+
+            <h3>Advantages of Ammonia vs Pure Hydrogen</h3>
+            <table>
+                <tr><th>Parameter</th><th>Ammonia</th><th>Hydrogen</th></tr>
+                <tr><td>Energy density</td><td>40% of petrol</td><td>25% of petrol (at 700 bar)</td></tr>
+                <tr><td>Storage pressure</td><td>10-15 bar</td><td>700 bar</td></tr>
+                <tr><td>Liquefaction temp</td><td>-33°C</td><td>-253°C</td></tr>
+                <tr><td>Infrastructure</td><td>Established globally</td><td>Limited</td></tr>
+                <tr><td>Cost</td><td>Lower</td><td>Higher</td></tr>
+                <tr><td>Toxicity</td><td>Toxic (requires care)</td><td>Non-toxic</td></tr>
+                <tr><td>As fuel</td><td>Direct combustion or cracking→H₂</td><td>Direct use</td></tr>
+            </table>
+
+            <h3>Applications</h3>
+            <ul>
+                <li><strong>Maritime shipping:</strong> Carbon-free fuel (e.g., MAN 2-stroke engines)</li>
+                <li><strong>Heavy transport:</strong> Trucks, rail where batteries impractical</li>
+                <li><strong>Power generation:</strong> Gas turbines (e.g., Mitsubishi 40-MW class)</li>
+                <li><strong>Hydrogen carrier:</strong> Crack NH₃→H₂ at point of use</li>
+                <li><strong>Energy storage:</strong> Seasonal renewable energy storage at scale</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>💡 Exam Tip for Ammonia Questions:</strong></p>
+                <p>Always mention BOTH advantages (easier storage, existing infrastructure, higher volumetric energy density) AND disadvantages (toxicity, NOₓ emissions if combusted, lower reactivity, requires cracking for some applications).</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- ============================================ -->
+        <!-- SECTION 4: ADDITIONAL EXAM TOPICS -->
+        <!-- ============================================ -->
+
+        <div class="topic-header">
+            <div class="topic-number">SECTION 04</div>
+            <div class="topic-title">Additional Important<br>Exam Topics</div>
+            <div class="topic-subtitle">Coal Storage · Internal Resistance · SMES · Capacitors · Underground Storage</div>
+        </div>
+
+        <!-- 4.1 COAL STORAGE -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">4.1 COAL STORAGE & SPONTANEOUS COMBUSTION</div>
+                <h2>Coal Storage</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ TESTED IN EARLY YEARS (2014-2017)</div>
+                <p><strong>Tested in:</strong> 2014, 2015, 2016, 2017</p>
+                <p><strong>Marks:</strong> 15-20 per question | <strong>Types:</strong> List factors, explain prevention measures, explain chimney effect</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Spontaneous Combustion of Coal</div>
+                <p>A major hazard in long-term coal storage where coal self-heats through slow oxidation, potentially leading to fires. Understanding intrinsic (coal properties) and extrinsic (environmental) factors is critical for safe storage operations.</p>
+            </div>
+
+            <h3>Intrinsic Factors (Coal Properties)</h3>
+            <table>
+                <tr><th>Factor</th><th>Effect on Spontaneous Combustion</th></tr>
+                <tr>
+                    <td><strong>Coal Rank</strong></td>
+                    <td>MOST IMPORTANT. Lower rank coals (sub-bituminous, lignite) are MORE susceptible than higher rank coals (bituminous, anthracite)</td>
+                </tr>
+                <tr>
+                    <td><strong>Moisture Content</strong></td>
+                    <td>Two-fold effect: (1) High moisture acts as heat sink (reduces risk), (2) Moisture adsorption releases "heat of wetting" (increases risk). Low moisture coals more prone to spontaneous combustion</td>
+                </tr>
+                <tr>
+                    <td><strong>Volatile Matter</strong></td>
+                    <td>Higher volatile content increases susceptibility to self-heating</td>
+                </tr>
+                <tr>
+                    <td><strong>Mineral Matter (esp. Pyrite)</strong></td>
+                    <td>Pyrite (FeS₂) oxidation is STRONGLY EXOTHERMIC even at ambient conditions, dramatically accelerates coal heating. Critical concern!</td>
+                </tr>
+                <tr>
+                    <td><strong>Particle Size</strong></td>
+                    <td>Smaller particles = larger surface area = more oxidation sites = higher risk. Also increases void capacity for air flow</td>
+                </tr>
+            </table>
+
+            <h3>Extrinsic Factors (Environmental/Climatic)</h3>
+            <table>
+                <tr><th>Factor</th><th>Impact</th></tr>
+                <tr>
+                    <td><strong>Air Humidity & Pressure</strong></td>
+                    <td>Fluctuations trigger moisture adsorption/re-adsorption, releasing significant "heat of wetting" (can increase pile temperature by 30°C!)</td>
+                </tr>
+                <tr>
+                    <td><strong>Rainfall</strong></td>
+                    <td>Beyond humidity effects, heavy rain creates void channels (water pathways) allowing air ingress into oxygen-depleted stockpiles</td>
+                </tr>
+                <tr>
+                    <td><strong>Ambient Temperature</strong></td>
+                    <td>High ambient T enhances oxidation rate. Large temperature variations create natural convection ("chimney effect")</td>
+                </tr>
+                <tr>
+                    <td><strong>Wind</strong></td>
+                    <td>MAJOR climatic factor. Enhances air convection, drives fresh oxygen deeper into pile, causes drying/weathering, fluctuations in moisture content</td>
+                </tr>
+            </table>
+
+            <h3>⭐ The "Chimney Effect"</h3>
+            <div class="definition">
+                <div class="definition-term">Chimney Effect</div>
+                <p>Movement of air into and out of coal stockpiles due to natural convection caused by temperature differences between ambient air and the stockpile interior. This significantly affects airflow pattern and velocity, promoting coal oxidation and temperature rises.</p>
+            </div>
+
+            <p><strong>Prevention Measures for Chimney Effect:</strong></p>
+            <ul>
+                <li>Avoid particle size segregation during stacking (maintains uniform density)</li>
+                <li><strong>Compact the "toe" of stockpile</strong> to prevent air flow in/out of bottom when interior is warmer/cooler than ambient</li>
+            </ul>
+
+            <h3>Prevention & Best Practices</h3>
+            <ul>
+                <li><strong>Site Preparation:</strong> Level, well-drained base, away from ignition sources</li>
+                <li><strong>Stockpile Formation:</strong> Proper stacking methodology, avoid segregation</li>
+                <li><strong>Regular Compaction:</strong> Reduces void spaces, limits air penetration</li>
+                <li><strong>Wind Shielding:</strong> Physical barriers to reduce wind-driven air convection</li>
+                <li><strong>Surface Coverage:</strong> Tarpaulins, spray-on coatings, or vegetation to limit oxygen access</li>
+                <li><strong>Wet Suppression:</strong> Water spray/cannon (with/without wetting agents) to increase surface moisture</li>
+                <li><strong>Temperature Monitoring:</strong> Regular thermographic surveys to detect hot spots early</li>
+                <li><strong>Don't mix different coals:</strong> Especially those with significantly different moisture contents or pyrite levels</li>
+            </ul>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">📝 Exam Strategy for Coal Questions</div>
+                <p><strong>Typical question patterns:</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li><strong>List intrinsic/extrinsic factors (15 marks):</strong> Give factor name + brief explanation of effect</li>
+                    <li><strong>Prevention measures (5-6 marks):</strong> List 5-6 measures with short explanation</li>
+                    <li><strong>Chimney effect (4 marks):</strong> Define (2 marks) + prevention measures (2 marks)</li>
+                    <li><strong>Can two coals be stored together? (10 marks):</strong> Compare properties from table, focus on moisture, pyrite, volatile matter differences</li>
+                </ul>
+            </div>
+
+            <div class="not-tested">
+                <p><strong>🔵 Not Tested Since 2017:</strong> Coal storage topic disappeared after 2017. Still understand concepts as they may return!</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 4.2 INTERNAL RESISTANCE -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">4.2 INTERNAL RESISTANCE OF BATTERIES</div>
+                <h2>Internal Resistance</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ IMPORTANT CONCEPTUAL TOPIC</div>
+                <p><strong>Tested in:</strong> 2014, 2016</p>
+                <p><strong>Marks:</strong> 6-20 per question | <strong>Focus:</strong> Maximum power transfer, energy efficiency</p>
+            </div>
+
+            <div class="definition">
+                <div class="definition-term">Internal Resistance (R<sub>I</sub>)</div>
+                <p>All electrochemical energy storage devices (EESDs) - batteries, supercapacitors - have internal resistance representing energy losses from ionic transport through electrolyte, charge transfer resistance at electrodes, and electronic resistance of current collectors.</p>
+            </div>
+
+            <h3>Effects of Internal Resistance</h3>
+            <ul>
+                <li><strong>Voltage drop during discharge:</strong> V<sub>terminal</sub> = V<sub>open-circuit</sub> - I×R<sub>I</sub></li>
+                <li><strong>Heat generation:</strong> P<sub>loss</sub> = I²R<sub>I</sub></li>
+                <li><strong>Reduced available energy:</strong> Energy wasted as heat</li>
+                <li><strong>Power limitation:</strong> Limits maximum current that can be drawn</li>
+            </ul>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ Maximum Power Transfer Condition</div>
+                <div class="formula formula-main">
+                    <span class="var">R</span><span class="sub">L</span> = <span class="var">R</span><span class="sub">I</span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>R<sub>L</sub></strong> = Load resistance</li>
+                    <li><strong>R<sub>I</sub></strong> = Internal resistance</li>
+                </ul>
+                <p style="margin-top: 12px; font-family: var(--font-body);"><strong>When R<sub>L</sub> = R<sub>I</sub>:</strong> Maximum power delivered to load, but only 50% efficiency!</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">High Efficiency Condition (95%+ Energy Delivery)</div>
+                <div class="formula formula-main">
+                    <span class="var">R</span><span class="sub">L</span> >> <span class="var">R</span><span class="sub">I</span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">For 95% energy efficiency: R<sub>L</sub> ≈ 19×R<sub>I</sub></p>
+                <p style="margin-top: 8px; font-family: var(--font-body);"><strong>Trade-off:</strong> Higher efficiency but lower power output</p>
+            </div>
+
+            <h3>Worked Example (EP2014, Q3)</h3>
+            <div class="highlight-box">
+                <p><strong>Question:</strong> For maximum power transfer, what relationship between R<sub>L</sub> and R<sub>I</sub>? For 95% energy delivery, how should this change?</p>
+                
+                <p style="margin-top: 12px;"><strong>Solution:</strong></p>
+                <ul style="margin-top: 8px;">
+                    <li><strong>Maximum power:</strong> R<sub>L</sub> = R<sub>I</sub> (matched impedance)</li>
+                    <li><strong>Power delivered:</strong> P<sub>L</sub> = V²/(4R<sub>I</sub>), Efficiency = 50%</li>
+                    <li><strong>For 95% energy delivery:</strong> Energy losses = I²R<sub>I</sub>t, must be < 5% of total</li>
+                    <li>This requires R<sub>L</sub> >> R<sub>I</sub>, specifically R<sub>L</sub> ≈ 19R<sub>I</sub></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 4.3 SMES, CAPACITORS, INDUCTORS -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">4.3 CAPACITORS, INDUCTORS & SMES</div>
+                <h2>Alternative Energy Storage Technologies</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ TESTED 2015-2016</div>
+                <p><strong>Marks:</strong> 4-12 per question | <strong>Focus:</strong> Energy density limits, fundamental principles</p>
+            </div>
+
+            <h3>Simple Foil Capacitors</h3>
+            
+            <div class="formula-box">
+                <div class="formula-title">Energy Stored in Capacitor</div>
+                <div class="formula formula-main">
+                    <span class="var">E</span> = ½ <span class="var">C</span> <span class="var">V</span><span class="sup">2</span> = <span class="frac"><span class="frac-num">1</span><span class="frac-den">2</span></span> <span class="greek">ε</span> <span class="var">E</span><span class="sub">field</span><sup>2</sup> × Volume
+                </div>
+            </div>
+
+            <p><strong>What limits energy per unit volume in foil capacitor?</strong></p>
+            <ul>
+                <li><strong>Breakdown field strength (E<sub>max</sub>):</strong> Maximum electric field before dielectric fails (~100 MV/m typical)</li>
+                <li><strong>Permittivity (ε):</strong> ε = ε₀ × ε<sub>r</sub>, higher ε<sub>r</sub> stores more energy</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>Energy density example:</strong> ε<sub>r</sub>=5, E<sub>max</sub>=100 MV/m</p>
+                <p>Energy density ≈ ½ × (ε₀ε<sub>r</sub>) × E<sub>max</sub>² ≈ 800 kJ/m³ ≈ 300 J/kg</p>
+                <p style="margin-top: 8px;"><em>Compare to kerosene: 46 MJ/kg!</em> Capacitors have VERY low energy density.</p>
+            </div>
+
+            <h3>Simple Inductors (Toroidal)</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Energy in Inductor</div>
+                <div class="formula formula-main">
+                    <span class="var">E</span> = ½ <span class="var">L</span> <span class="var">I</span><span class="sup">2</span> = <span class="frac"><span class="frac-num"><span class="var">B</span><sup>2</sup></span><span class="frac-den">2<span class="greek">μ</span><span class="sub">0</span></span></span> × Volume
+                </div>
+            </div>
+
+            <p><strong>What limits energy per unit volume in inductor?</strong></p>
+            <ul>
+                <li><strong>Current density limit:</strong> Typically ~2 A/mm² for copper wire (overheating concern)</li>
+                <li><strong>Magnetic flux density (B):</strong> Limited by how much current can pass through torus center</li>
+                <li>B = μ₀I<sub>total</sub>/(2πR<sub>mean</sub>) for toroid</li>
+            </ul>
+
+            <p><strong>For iron-core inductors:</strong> Most energy stored in small "airgap" (thickness d). Energy confined to tiny volume while overall inductor is large → very poor energy density.</p>
+
+            <div class="highlight-box">
+                <p><strong>Typical specific energy for copper inductor:</strong> ~0.03 J/kg</p>
+                <p><em>Extremely poor! Inductors are NOT competitive for bulk energy storage.</em></p>
+            </div>
+
+            <h3>Superconducting Magnetic Energy Storage (SMES)</h3>
+
+            <div class="definition">
+                <div class="definition-term">SMES</div>
+                <p>Uses superconducting coils (zero electrical resistance below critical temperature T<sub>c</sub>) to store energy in magnetic field. No resistive losses during storage, but requires cryogenic cooling (liquid N₂ at 77K or liquid He at 4K).</p>
+            </div>
+
+            <p><strong>Two limits governing SMES energy storage:</strong></p>
+            <ol>
+                <li><strong>Current density in superconductor:</strong> Maximum current that can flow without exceeding critical current density</li>
+                <li><strong>Magnetic field perpendicular to current:</strong> Superconductivity breaks down above critical magnetic field strength perpendicular to current direction</li>
+            </ol>
+
+            <p><strong>Advantages:</strong></p>
+            <ul>
+                <li>Negligible standby losses (superconductor has ~zero resistance)</li>
+                <li>Very fast response time (milliseconds)</li>
+                <li>High power density</li>
+                <li>Long lifetime (>20 years)</li>
+            </ul>
+
+            <p><strong>Disadvantages:</strong></p>
+            <ul>
+                <li><strong>Extremely high cost per kWh</strong> (highest of all storage technologies)</li>
+                <li>Requires continuous cryogenic cooling</li>
+                <li>Complex system</li>
+                <li>Specialist applications only (grid stabilization, pulse power)</li>
+            </ul>
+
+            <div class="not-tested">
+                <p><strong>🔵 Status:</strong> SMES questions appeared 2015-2016, then disappeared. Understand concepts but lower priority than main topics.</p>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- 4.4 UNDERGROUND GAS STORAGE DETAILS -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">4.4 UNDERGROUND GAS STORAGE (DETAILED CALCULATIONS)</div>
+                <h2>Underground Gas Storage Engineering</h2>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">⚠️ DETAILED CALCULATIONS - SECTION B QUESTIONS</div>
+                <p><strong>Tested in:</strong> 2014, 2020, 2022</p>
+                <p><strong>Marks:</strong> 60-100 marks (full Section B question) | <strong>Very calculation-heavy!</strong></p>
+            </div>
+
+            <h3>Key Concepts</h3>
+
+            <p><strong>Working Gas vs Cushion Gas:</strong></p>
+            <ul>
+                <li><strong>Working Gas:</strong> Gas that can be withdrawn and used</li>
+                <li><strong>Cushion Gas (Base Gas):</strong> Gas that must remain to maintain pressure/deliverability</li>
+                <li>Total Gas in Place = Working Gas + Cushion Gas</li>
+            </ul>
+
+            <div class="formula-box">
+                <div class="formula-title">⭐ Formation Volume Factor (CRITICAL)</div>
+                <div class="formula formula-main">
+                    <span class="var">B</span><span class="sub">g</span> = 0.0283 × <span class="frac"><span class="frac-num"><span class="var">ZT</span></span><span class="frac-den"><span class="var">p</span></span></span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body);">
+                    <li><strong>B<sub>g</sub></strong> = Formation volume factor (m³/sm³)</li>
+                    <li><strong>Z</strong> = Gas compressibility factor (dimensionless, ~0.8-1.0)</li>
+                    <li><strong>T</strong> = Absolute temperature (K)</li>
+                    <li><strong>p</strong> = Pressure (bar or MPa - watch units!)</li>
+                </ul>
+                <p style="margin-top: 12px; font-family: var(--font-body);"><strong>Relates:</strong> Volume at standard conditions (sm³) to volume at reservoir conditions (m³)</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Gas in Place Calculation</div>
+                <div class="formula formula-main">
+                    <span class="var">G</span><span class="sub">s</span> = <span class="frac"><span class="frac-num"><span class="var">V</span><span class="sub">reservoir</span></span><span class="frac-den"><span class="var">B</span><span class="sub">g</span></span></span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where G<sub>s</sub> = gas volume at standard conditions (sm³ or Msm³)</p>
+            </div>
+
+            <h3>Pressure-Volume Relationships</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Material Balance Equation</div>
+                <div class="formula formula-main">
+                    <span class="frac"><span class="frac-num"><span class="var">p</span></span><span class="frac-den"><span class="var">Z</span></span></span> = <span class="var">m</span> × <span class="var">G</span><span class="sub">s</span> + <span class="var">c</span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Linear relationship! Slope m and intercept c determined from operational data.</p>
+            </div>
+
+            <p><strong>From (p/Z) vs G<sub>s</sub> graph:</strong></p>
+            <ul>
+                <li>Slope gives rate of pressure change with gas injection/withdrawal</li>
+                <li>Intercept at G<sub>s</sub>=0 gives initial (p/Z)</li>
+                <li>Can extrapolate to find maximum capacity at maximum pressure</li>
+            </ul>
+
+            <h3>Injectivity & Deliverability</h3>
+
+            <div class="formula-box">
+                <div class="formula-title">Darcy Flow Equation (Radial, Gas)</div>
+                <div class="formula formula-main" style="font-size: 18px;">
+                    <span class="var">q</span><span class="sub">inj</span> = <span class="frac"><span class="frac-num"><span class="var">kh</span>(<span class="var">p</span><span class="sub">inj</span><sup>2</sup> - <span style="text-decoration: overline;"><span class="var">p</span></span><sup>2</sup>)</span><span class="frac-den">1424<span style="text-decoration: overline;"><span class="greek">μ</span></span><span style="text-decoration: overline;"><span class="var">Z</span></span><span class="var">T</span>[ln(0.472<span class="var">r</span><span class="sub">e</span>/<span class="var">r</span><span class="sub">w</span>) + <span class="var">S</span>]</span></span>
+                </div>
+                <p style="margin-top: 10px; font-family: var(--font-body);">Where:</p>
+                <ul style="margin-left: 20px; margin-top: 8px; font-family: var(--font-body); font-size: 16px;">
+                    <li><strong>q<sub>inj</sub></strong> = Injection rate (Mscf/day or Kscf/day)</li>
+                    <li><strong>k</strong> = Permeability (mD or Darcy)</li>
+                    <li><strong>h</strong> = Formation thickness (ft)</li>
+                    <li><strong>p<sub>inj</sub></strong> = Wellbore injection pressure (psia)</li>
+                    <li><strong>p̄</strong> = Average reservoir pressure (psia)</li>
+                    <li><strong>μ̄, Z̄</strong> = Average viscosity, compressibility</li>
+                    <li><strong>r<sub>e</sub></strong> = Drainage radius (ft)</li>
+                    <li><strong>r<sub>w</sub></strong> = Wellbore radius (ft)</li>
+                    <li><strong>S</strong> = Skin factor (damage/stimulation, dimensionless)</li>
+                </ul>
+            </div>
+
+            <p><strong>Skin Factor (S):</strong></p>
+            <ul>
+                <li><strong>S = 0:</strong> No damage/stimulation</li>
+                <li><strong>S > 0:</strong> Formation damage (reduces injectivity)</li>
+                <li><strong>S < 0:</strong> Formation stimulation (increases injectivity)</li>
+            </ul>
+
+            <div class="warning-box">
+                <p><strong>⚠️ UNIT HELL!</strong></p>
+                <p>Underground gas storage calculations use oilfield units (psia, ft, mD, °F). Be EXTREMELY careful with unit conversions!</p>
+                <ul style="margin-top: 8px;">
+                    <li>1 bar = 14.504 psia</li>
+                    <li>1 MPa = 145.04 psia</li>
+                    <li>T(°F) = 1.8×T(°C) + 32, T(°R) = T(°F) + 460</li>
+                    <li>1 ft = 0.3048 m</li>
+                </ul>
+            </div>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">📝 Underground Storage Exam Strategy</div>
+                <p><strong>These are LONG calculation questions (60+ marks). Approach systematically:</strong></p>
+                <ol style="margin-top: 8px;">
+                    <li><strong>Read data table carefully</strong> - extract p/Z values and cumulative volumes</li>
+                    <li><strong>Plot p/Z vs G<sub>s</sub></strong> if asked - linear fit determines slope/intercept</li>
+                    <li><strong>Apply material balance</strong> to find initial gas in place</li>
+                    <li><strong>Calculate B<sub>g</sub></strong> at different conditions for capacity calculations</li>
+                    <li><strong>Use Darcy equation</strong> for injectivity/deliverability (watch units!)</li>
+                    <li><strong>Show ALL working</strong> - partial marks available</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- FORMULA SUMMARY & EXAM TIPS -->
+        <div class="section">
+            <h2>📋 Complete Formula Summary</h2>
+            <p style="text-align: center; font-size: 19px; margin-bottom: 25px;"><em>Master these formulas and you're 80% prepared for any calculation question!</em></p>
+
+            <h3>Thermo-Mechanical Storage</h3>
+            <div class="formula-box">
+                <div class="formula-title">Pumped Hydro</div>
+                <p>E = mgh</p>
+                <p>P = ρgQhη</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Flywheels</div>
+                <p>E = ½Iω² = ½mv²</p>
+                <p>v_max = √(σ_max/ρ)</p>
+                <p>E_max = σ_max×V / 2</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">CAES & Thermodynamics</div>
+                <p>Adiabatic: T₂/T₁ = (p₂/p₁)^((γ-1)/γ), γ=1.4 for air</p>
+                <p>Isothermal Work: W = p₁V₁×ln(p₂/p₁)</p>
+                <p>Pressure Exergy: B = p₀V₀×ln(p_max/p₀)</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Thermal Storage</div>
+                <p>Sensible: Q = mc_pΔT</p>
+                <p>Latent: Q = mΔH_f</p>
+                <p>Exergy (sensible): B = mc_p[ΔT - T₀×ln(T₂/T₁)]</p>
+                <p>Exergy (latent): B = Q(1-T₀/T_melt)</p>
+            </div>
+
+            <h3>Electrochemical Storage</h3>
+            <div class="formula-box">
+                <div class="formula-title">Batteries</div>
+                <p>ΔG° = -nFE°_cell</p>
+                <p>Specific Capacity = nF/MW (Ah/kg)</p>
+                <p>Specific Energy = nFE_cell/MW (Wh/kg)</p>
+                <p>Nernst: E = E° - (RT/nF)×ln(Q)</p>
+                <p><strong>Key values:</strong> F=96,485 C/mol, 1 Ah=3600 C</p>
+            </div>
+
+            <div class="formula-box">
+                <div class="formula-title">Supercapacitors</div>
+                <p>C = i/ν</p>
+                <p>E = ½CU²</p>
+                <p>P_max = U²/(4×ESR×mass)</p>
+            </div>
+
+            <h3>Hydrogen & Gas Storage</h3>
+            <div class="formula-box">
+                <div class="formula-title">Ideal Gas & Storage</div>
+                <p>ρ = p/(RT), for H₂: R=4124 J/(kg·K)</p>
+                <p>Pressure vessel: t = pr/σ_max</p>
+                <p>Formation volume factor: B_g = 0.0283×ZT/p</p>
+            </div>
+
+            <h3>Universal Concepts</h3>
+            <div class="formula-box">
+                <div class="formula-title">Energy vs Exergy</div>
+                <p>Carnot Efficiency: η = 1 - T₀/T_hot</p>
+                <p>Exergy from Heat: B = Q(1-T₀/T_heat)</p>
+                <p><strong>Remember:</strong> Electricity = 100% exergy, Heat exergy depends on T!</p>
+            </div>
+
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- FINAL EXAM STRATEGY -->
+        <div class="section">
+            <h2>🎯 Final Exam Strategy & Tips</h2>
+
+            <div class="exam-focus">
+                <div class="exam-focus-title">🏆 TOP 10 MOST FREQUENTLY TESTED TOPICS</div>
+                <ol style="margin-top: 12px; font-size: 17px; line-height: 1.9;">
+                    <li><strong>Pumped Hydro calculations</strong> (E=mgh) - Tested 13/12 years</li>
+                    <li><strong>Flywheel energy/speed calculations</strong> (v_max=√(σ/ρ)) - Tested 12/12 years</li>
+                    <li><strong>Battery capacity & energy</strong> (nF/MW formulas) - Tested 11/12 years</li>
+                    <li><strong>Lithium-ion battery reactions</strong> (multiple cathode types) - Tested 11/12 years</li>
+                    <li><strong>CAES work calculations</strong> (isothermal vs adiabatic) - Tested 9/12 years</li>
+                    <li><strong>Supercapacitor energy/power</strong> (CV curve analysis) - Tested 6/12 years</li>
+                    <li><strong>Thermal storage exergy</strong> (sensible & latent) - Tested 6/12 years</li>
+                    <li><strong>Hydrogen storage calculations</strong> (density, tank mass) - Tested 6/12 years</li>
+                    <li><strong>Lead-acid battery reactions</strong> (half-equations) - Tested 8/12 years</li>
+                    <li><strong>Underground gas storage</strong> (formation volume factor) - Tested 5/12 years</li>
+                </ol>
+            </div>
+
+            <h3>Time Management Strategy</h3>
+            <ul>
+                <li><strong>Read ALL questions first (5 min):</strong> Identify easiest questions, plan order</li>
+                <li><strong>Calculation questions (60-70% of time):</strong> Show ALL working, include units, box final answers</li>
+                <li><strong>Explanation questions (20-30%):</strong> Use bullet points, be concise but comprehensive</li>
+                <li><strong>Diagram questions (10%):</strong> Label everything, show flow directions clearly</li>
+            </ul>
+
+            <h3>Common Mistakes to Avoid</h3>
+            <div class="warning-box">
+                <p><strong>⚠️ TOP 5 MISTAKES THAT COST MARKS:</strong></p>
+                <ol style="margin-top: 10px;">
+                    <li><strong>Unit conversions:</strong> MPa to Pa, kWh to J, mAh/g vs Ah/kg</li>
+                    <li><strong>Forgetting Faraday constant conversion:</strong> 1 Ah = 3600 C</li>
+                    <li><strong>Using wrong formula:</strong> E=½mv² vs E=½Iω² for flywheels</li>
+                    <li><strong>Not showing working:</strong> Partial marks only given if steps shown!</li>
+                    <li><strong>Confusing energy vs exergy:</strong> Heat is NOT 100% exergy!</li>
+                </ol>
+            </div>
+
+            <h3>Final Checklist Before Exam</h3>
+            <ul style="font-size: 17px;">
+                <li>✅ Can I write ALL battery half-reactions from memory?</li>
+                <li>✅ Do I know when to use isothermal vs adiabatic formulas?</li>
+                <li>✅ Can I calculate flywheel mass from σ_max and ρ?</li>
+                <li>✅ Do I understand energy vs exergy concept?</li>
+                <li>✅ Can I convert between all common units?</li>
+                <li>✅ Have I practiced at least 3 past papers under timed conditions?</li>
+            </ul>
+
+            <div class="highlight-box" style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 22px; font-family: var(--font-display); color: var(--color-primary);"><strong>You've got this! 🚀</strong></p>
+                <p style="font-size: 18px; margin-top: 10px;">These notes cover 100% of frequently tested material.</p>
+                <p style="font-size: 18px;">Master the formulas, practice calculations, understand the concepts.</p>
+                <p style="font-size: 18px; margin-top: 10px;"><em>Good luck on your exam!</em></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid var(--color-border); text-align: center; color: var(--color-text-muted); font-size: 16px;">
+            <p><strong>ENGR4004 Energy Storage</strong> — Complete Exam Notes</p>
+            <p style="margin-top: 8px;">Based on past papers 2014-2025 & comprehensive lecture content</p>
+            <p style="margin-top: 8px;">University of Nottingham — Level 4 Module — Spring Semester</p>
+            <p style="margin-top: 15px; font-style: italic;">Created with meticulous attention to exam patterns and question types</p>
+        </div>
+
+    </div>
+</body>
+</html>
