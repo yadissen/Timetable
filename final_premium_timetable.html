@@ -96,7 +96,7 @@
         }
 
         .schedule-wrapper {
-            padding: 24px;
+            padding: 16px;
             overflow-x: auto;
         }
 
@@ -147,27 +147,24 @@
         }
 
         .activity-block {
-            padding: 4px 8px;
-            font-size: 10px;
-            line-height: 1.35;
+            padding: 3px 6px;
+            font-size: 9px;
+            line-height: 1.25;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             color: var(--color-text);
             border-left: 3px solid;
-            transition: opacity 0.15s ease;
-        }
-
-        .activity-block:hover {
-            opacity: 0.85;
+            overflow: hidden;
         }
 
         .activity-text {
             flex: 1;
             overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
             font-weight: 500;
+            white-space: normal;
+            word-wrap: break-word;
+            line-height: 1.2;
         }
 
         .activity-time {
@@ -302,47 +299,6 @@
             color: #4b5563;
         }
 
-        /* Legend */
-        .legend {
-            margin: 24px;
-            padding: 20px 24px;
-            background: #fafafa;
-            border: 1px solid var(--color-border);
-            border-radius: 6px;
-        }
-
-        .legend-title {
-            font-size: 11px;
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--color-text);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .legend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 8px;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 10px;
-            color: var(--color-text);
-            font-weight: 500;
-        }
-
-        .legend-color {
-            width: 20px;
-            height: 14px;
-            border-radius: 2px;
-            border-left: 3px solid;
-            flex-shrink: 0;
-        }
-
         /* ============================================
            PRINT STYLES - A3 LANDSCAPE
            Clean, professional output
@@ -350,7 +306,7 @@
         @media print {
             @page {
                 size: A3 landscape;
-                margin: 10mm;
+                margin: 6mm;
             }
 
             * {
@@ -375,16 +331,17 @@
             }
 
             header {
-                padding: 16px 20px !important;
+                padding: 10px 16px !important;
                 border-bottom: 2px solid var(--color-header) !important;
             }
 
             .page-title {
-                font-size: 22px !important;
+                font-size: 18px !important;
+                margin-bottom: 2px !important;
             }
 
             .page-subtitle {
-                font-size: 11px !important;
+                font-size: 10px !important;
             }
 
             .toolbar {
@@ -419,8 +376,8 @@
             }
 
             .day-cell {
-                height: 36px !important;
-                min-height: 36px !important;
+                height: 38px !important;
+                min-height: 38px !important;
             }
 
             .activity-block {
@@ -436,34 +393,6 @@
 
             .activity-time {
                 display: none !important;
-            }
-
-            .legend {
-                margin: 12px !important;
-                padding: 12px 16px !important;
-                border-radius: 0 !important;
-                page-break-inside: avoid !important;
-            }
-
-            .legend-title {
-                font-size: 9px !important;
-                margin-bottom: 8px !important;
-            }
-
-            .legend-grid {
-                grid-template-columns: repeat(8, 1fr) !important;
-                gap: 4px !important;
-            }
-
-            .legend-item {
-                font-size: 8px !important;
-                gap: 4px !important;
-            }
-
-            .legend-color {
-                width: 16px !important;
-                height: 10px !important;
-                border-left-width: 2px !important;
             }
 
             .container, .schedule-wrapper, .grid-table {
@@ -504,27 +433,6 @@
             </table>
         </div>
 
-        <div class="legend">
-            <div class="legend-title">Activity Categories</div>
-            <div class="legend-grid">
-                <div class="legend-item"><div class="legend-color activity-wakeup"></div>Morning</div>
-                <div class="legend-item"><div class="legend-color activity-aim"></div>Training</div>
-                <div class="legend-item"><div class="legend-color activity-cs2"></div>Gaming</div>
-                <div class="legend-item"><div class="legend-color activity-gym"></div>Exercise</div>
-                <div class="legend-item"><div class="legend-color activity-shower"></div>Shower</div>
-                <div class="legend-item"><div class="legend-color activity-lecture"></div>Lectures</div>
-                <div class="legend-item"><div class="legend-color activity-coursework"></div>Coursework</div>
-                <div class="legend-item"><div class="legend-color activity-lunch"></div>Lunch</div>
-                <div class="legend-item"><div class="legend-color activity-dinner"></div>Dinner</div>
-                <div class="legend-item"><div class="legend-color activity-prep"></div>Meal Prep</div>
-                <div class="legend-item"><div class="legend-color activity-cook"></div>Cooking</div>
-                <div class="legend-item"><div class="legend-color activity-shopping"></div>Shopping</div>
-                <div class="legend-item"><div class="legend-color activity-calls"></div>Calls</div>
-                <div class="legend-item"><div class="legend-color activity-relax"></div>Relax</div>
-                <div class="legend-item"><div class="legend-color activity-sleep"></div>Sleep</div>
-                <div class="legend-item"><div class="legend-color activity-break"></div>Break</div>
-            </div>
-        </div>
     </div>
 
     <script>
